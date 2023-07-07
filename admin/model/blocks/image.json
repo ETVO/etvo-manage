@@ -1,0 +1,10 @@
+{
+    "title": "Image",
+    "icon": "image",
+    "attributes": {
+        "src": {
+            "label": "Image",
+            "type": "image"
+        }
+    }
+}
