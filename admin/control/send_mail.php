@@ -1,6 +1,6 @@
 <?php
-include '../util.php';
-include 'form_util.php';
+include dirname(__FILE__) . '/util.php';
+include dirname(__FILE__) . '/form_util.php';
 
 $model = get_model('contact');
 
@@ -39,7 +39,7 @@ if (empty($errors)) {
         $value = $_POST[$key];
         $label = $field['label'];
 
-        if($field['type'] == 'textarea') {
+        if ($field['type'] == 'textarea') {
             $body .= "\n";
         }
         $body .= "$label: $value\n";
@@ -55,8 +55,7 @@ if (empty($errors)) {
 
     if ($is_ajax) {
         echo $response;
-    }
-    else {
+    } else {
         $redirect = "/?form_status=success&form_message=$response&$form_anchor";
         header("Location: $redirect");
     }

@@ -1,4 +1,5 @@
 <?php
+include_once dirname(__FILE__) . '/../index.php';
 
 define('WP_URL', 'http://blog-velvetcare.test');
 define('API_URL', WP_URL . '/wp-json/wp/v2/');

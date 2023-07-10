@@ -1,7 +1,9 @@
 <?php
 
+include_once dirname(__FILE__) . '/../index.php';
+
 define('DATA_PATH', BASE_DIR . '/data/');
-define('MODEL_PATH', ADMIN_DIR . './model/');
+define('MODEL_PATH', ADMIN_DIR . '/model/');
 
 $settings = null;
 
@@ -66,7 +68,7 @@ function get_data_from_dir($dir)
 function render_field($field_name, $field, $value, $parent_block = null, $echo = true, $data_source = null)
 {
     $type = $field['type'];
-    $label = $field['label'];
+    $label = $field['label'] ?? '';
 
     $has_parent = $parent_block != null;
 
@@ -83,15 +85,25 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
         <?php
 
         switch ($type):
+            case 'hidden':
+        ?>
+                <input type="hidden" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+            <?php
+                break;
+
             case 'string':
+            case 'text':
         ?>
                 <input type="text" class="form-control" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
             <?php
                 break;
 
             case 'password':
-        ?>
-                <input type="password" class="form-control" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+            ?>
+                <div class="password">
+                    <input type="password" class="form-control" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                    <span class="password-toggle bi-eye-slash"></span>
+                </div>
             <?php
                 break;
 
@@ -104,6 +116,19 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
             case 'textarea':
             ?>
                 <textarea name="<?php echo $name; ?>" id="<?php echo $name ?>" class="form-control" rows="2"><?php echo $value; ?></textarea>
+            <?php
+                break;
+
+            case 'select':
+                $options = $field['options'];
+            ?>
+                <select name="<?php echo $name; ?>" id="<?php echo $name ?>" class="form-select">
+                    <option value="" disabled selected>-- Select --</option>
+                    <?php foreach ($options as $option_value => $option_label) : 
+                        $selected = ($option_value == $value) ? 'selected' : ''?>
+                        <option value="<?= $option_value ?>" <?= $selected; ?>><?= $option_label ?></option>
+                    <?php endforeach; ?>
+                </select>
             <?php
                 break;
 
@@ -156,7 +181,7 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
                 <?php endif; ?>
                 <input type="hidden" class="render-helper" name="allowed_blocks" value="<?php echo $allowed_blocks; ?>">
                 <input type="hidden" class="render-helper" name="block_group_name" value="<?php echo $name; ?>">
-        <?php
+            <?php
                 render_block($value, $field, $name, $save_in_dir, $has_parent);
                 break;
 
@@ -166,7 +191,25 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
 
         endswitch;
 
-        ?>
+        if (isset($field['help'])) :
+            // $show = true;
+            // if (isset($field['conditions']['showHelp'])) {
+            //     $show = false;
+            //     $conditions = $field['conditions']['showHelp'];
+            //     foreach ($conditions as $var_name => $var_value) {
+            //         $show = $show || ($$var_name == $var_value);
+            //     }
+            // }
+            // if ($show) :
+            ?>
+
+                <p class="field-help">
+                    <?= $field['help']; ?>
+                </p>
+
+        <?php 
+        // endif;
+        endif; ?>
     </div>
 <?php
 
@@ -253,7 +296,7 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
 
     $explode_id = explode(':', $block_id);
     $block_id = $explode_id[0];
-    
+
     $index = ':' . 0;
     if (isset($explode_id[1])) {
         $index = ':' . $explode_id[1];

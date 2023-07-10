@@ -1,7 +1,7 @@
 <?php 
 
-include  BASE_DIR . '/views/partials/header.php';
+include  VIEW_DIR . '/partials/header.php';
 
-include  BASE_DIR . '/views/partials/footer.php';
+include  VIEW_DIR . '/partials/footer.php';
 
 ?>

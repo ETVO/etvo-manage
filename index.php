@@ -3,11 +3,10 @@
 $request = $_SERVER['REQUEST_URI'];
 $viewDir = '/views/';
 
-define('BASE_DIR', __DIR__);
-define('VIEW_DIR', BASE_DIR . '/views/');
-define('ADMIN_DIR', BASE_DIR . '/admin/');
+include_once './const.php';
 
 $request = str_replace('/', '', $request);
+$request = explode('?', $request)[0];
 
 switch ($request) {
     case '':
@@ -16,19 +15,16 @@ switch ($request) {
         break;
 
     case 'content':
-        require __DIR__ . $viewDir . 'content.php';
-        break;
-
     case 'projects':
-        require __DIR__ . $viewDir . 'projects.php';
+        $data_source = $request;
+        require __DIR__ . $viewDir . 'model-page.php';
         break;
 
     case 'users':
-        require __DIR__ . $viewDir . 'projects.php';
+        require __DIR__ . $viewDir . 'users.php';
         break;
-
 
     default:
         http_response_code(404);
-        require __DIR__ . $viewDir . '404.php';
+        header('Location: ' . BASE_URL);
 }

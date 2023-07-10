@@ -3,11 +3,12 @@
     font-size: 0.95rem;
 }
 
-@import "./partials/header-footer.scss";
-@import "./partials/main-container.scss";
-@import "./partials/content.scss";
-@import "./partials/forms.scss";
-@import "./partials/login.scss";
+@import "./views/header-footer.scss";
+@import "./views/main-container.scss";
+@import "./views/content.scss";
+@import "./views/forms.scss";
+@import "./views/login.scss";
+@import "./views/users.scss";
 
 html {
     scroll-behavior: smooth;

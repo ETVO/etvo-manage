@@ -1,5 +1,7 @@
 <?php
 
+include_once dirname(__FILE__) . '/../index.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
     $data_source = $_POST['data_source'];
     $processed_data = $_POST;
@@ -23,11 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
 
     $json = json_encode($processed_data);
 
-    $source_file = "./data/$data_source.json";
-
+    // Save to JSON
+    $source_file = DATA_DIR . "/$data_source.json";
     file_put_contents($source_file, $json);
-
-    header("Location: $data_source.php");
+    
+    // Redirect to source
+    $redirect_to = BASE_URL . "/$data_source";
+    header("Location: $redirect_to");
 }
 
 function save_images(&$data, $has_image)
@@ -36,8 +40,8 @@ function save_images(&$data, $has_image)
 
     $data_source = $data['data_source'] ?? '';
 
-    $upload_dir = realpath(dirname(__FILE__)) . "/data/uploads/$data_source/";
-    $upload_uri = dirname($_SERVER['PHP_SELF']) . "/data/uploads/$data_source/";
+    $upload_dir = DATA_DIR . "/uploads/$data_source/";
+    $upload_uri = DATA_URL . "/uploads/$data_source/";
 
     foreach ($has_image as $image_key) {
         $key_parts = explode('[', str_replace(']', '', $image_key));

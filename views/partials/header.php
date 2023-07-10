@@ -1,6 +1,6 @@
 <?php
 
-include ADMIN_DIR . '/util/util.php';
+include CONTROL_DIR . '/util.php';
 
 $site_title = $settings['site_title'] ?? '';
 

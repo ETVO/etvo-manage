@@ -4,8 +4,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+include_once dirname(__FILE__) . '/../index.php';
+
 //Load Composer's autoloader
-require dirname(__FILE__) . '/../vendor/autoload.php';
+require $base_dir . '/vendor/autoload.php';
 
 function filter_field($value, $type, $required)
 {

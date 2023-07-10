@@ -1,18 +1,22 @@
 {
-    "projects": {
-        "label": "Projects",
-        "type": "blocks",
-        "allowed_blocks": [
-            "project"
-        ],
-        "allow": {
-            "add": true,
-            "remove": true,
-            "reorder": true
-        },
-        "save_in_dir": true,
-        "keep_fields": [
-            "year", "title", "thumbnail"    
-        ]
+    "title": "Projects",
+    "desc": "Edit the projects in your Portfolio.",
+    "attributes": {
+        "projects": {
+            "label": "Projects",
+            "type": "blocks",
+            "allowed_blocks": [
+                "project"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            },
+            "save_in_dir": true,
+            "keep_fields": [
+                "year", "title", "thumbnail"    
+            ]
+        }
     }
 }

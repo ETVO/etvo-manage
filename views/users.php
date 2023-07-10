@@ -1,37 +1,73 @@
 <?php
 
 $active_menu = 'users';
-include './partials/header.php';
+include VIEW_DIR . '/partials/header.php';
 
-$stored_users = get_data_from_dir('./system/users.json') ?? [];
-$model = get_data_from_dir('./system/user_model.json');
+$data_source = 'system/users';
+
+$stored_users = get_data_from_dir(ADMIN_DIR . '/' . $data_source . '.json') ?? [];
+$model = get_model($data_source) ?? "CRITICAL: No Users Model file was found.";
+
+
+$status = false;
+$message = '';
 
 $option = 'show';
 if (isset($_GET['add_new'])) {
     $option = 'add_new';
 }
-if (isset($_GET['edit'])) {
+if (isset($_GET['edit']) && isset($_GET['username'])) {
+    include_once CONTROL_DIR . '/user_util.php';
     $option = 'edit';
-}
-if (isset($_GET['show'])) {
-    $option = 'show';
-}
 
-$status = false;
-$message = '';
-
-if (isset($_POST['form'])) {
-    $form = $_POST['form'];
-    include './user_util.php';
-
-    if ($form == 'add_new') {
-        $response = register_user($_POST);
-
+    $username = $_GET['username'];
+    $response = get_user_data($username);
+    if ($response[0]) {
+        $data = $response[1];
+    } else {
         $status = $response[0];
         $message = $response[1];
     }
 }
+if (isset($_GET['show'])) {
+    $option = 'show';
+}
+if (isset($_GET['toggle']) && isset($_GET['username'])) {
+    include_once CONTROL_DIR . '/user_util.php';
 
+    $username = $_GET['username'];
+    $response = toggle_user($username);
+
+    echo '<script>window.location.href="?show";</script>';
+}
+
+if (isset($_GET['remove']) && isset($_GET['username'])) {
+    include_once CONTROL_DIR . '/user_util.php';
+
+    $username = $_GET['username'];
+?>
+    <script>
+        if (confirm('Are you sure you want to remove the user <?= $username; ?>?'))
+            window.location.href = "?really_remove&username=<?= $username; ?>";
+        else
+            window.location.href = "?show";
+    </script>
+<?php
+}
+
+if (isset($_GET['really_remove']) && isset($_GET['username'])) {
+    include_once CONTROL_DIR . '/user_util.php';
+
+    $username = $_GET['username'];
+    $response = remove_user($username);
+
+    $status = $response[0];
+    $message = $response[1];
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_id'])) {
+    include CONTROL_DIR . '/save_user.php';
+}
 
 if ($message != '') {
     $status_label = ($status) ? 'SUCCESS' : 'ERROR';
@@ -45,77 +81,22 @@ if ($message != '') {
 
     <?php switch ($option):
 
-        case 'show': ?>
-            <div class="heading">
-                <h1 class="title">Users</h1>
-            </div>
-
-            <a href="?add_new" class="btn btn-primary">
-                Add New User
-            </a>
-
-            <?php if ($stored_users) : ?>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Created at</th>
-                            <th scope="col">Updated at</th>
-                            <th scope="col">Active</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php foreach ($stored_users as $user) : ?>
-                            <tr>
-                                <td><?php echo $user['name']; ?></td>
-                                <td><?php echo $user['username']; ?></td>
-                                <td><?php echo $user['created_at']; ?></td>
-                                <td><?php echo $user['updated_at']; ?></td>
-                                <td><?php echo $user['active'] ? 'No' : 'Yes'; ?></td>
-                                <td><a href="?edit&username=<?php echo $user['username']; ?>">Edit</a></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <h2 class="fs-5 pt-3 fw-normal">No users were found.</h2>
-            <?php endif;
+        case 'show':
+            require VIEW_DIR . '/users/show.php';
             break;
 
-        case 'add_new': ?>
-            <div class="heading">
-                <h1 class="title">Add New User</h1>
-            </div>
+        case 'add_new':
+            require VIEW_DIR . '/users/add_new.php';
+            break;
 
-            <form action="" method="post" class="model row w-100 m-0">
-                <input type="hidden" name="form" value="add_new">
-                <div class="model-view col-6">
-                    <?php foreach ($model as $key => $field) :
-
-                        $value = $data[$key] ?? null;
+        case 'edit':
+            require VIEW_DIR . '/users/edit.php';
+            break;
 
 
-                        $key = explode(':', $key)[0];
-                        render_field($key, $field, $value);
-                    endforeach; ?>
-                </div>
-                <div class="col-3">
-                    <div class="model-sidebar">
-                        <button class="btn btn-primary">Save</button>
-                        <small>Changes are <b><i>NOT</i></b> saved automatically</small>
-                    </div>
-                </div>
-            </form>
-
-            <?php break; ?>
-
-
-    <?php endswitch; ?>
+    endswitch; ?>
 </main>
 <?php
-include './partials/footer.php';
+include VIEW_DIR . '/partials/footer.php';
 
 ?>
