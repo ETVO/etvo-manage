@@ -1,6 +1,94 @@
+$bg_color: var(--bs-primary);
+$fg_color: white;
+
 .login {
-    width: 500px;
-    max-width: 100%;
-    margin: auto;
+    position: absolute;
+    inset: 0;
     height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+
+    padding: 2rem 0 2rem;
+    background-color: #eee;
+
+    footer {
+        margin-top: auto;
+    }
+
+    .etvo-manage-brand {
+        margin-bottom: 1rem;
+        margin-left: 1.5rem;
+        height: 40px;
+        width: 275px;
+        font-size: 1.75rem;
+    }
+    
+    .forgot-password {
+        font-size: .8rem;
+        margin: 1rem 1.5rem 0; 
+        
+        a {
+            font-weight: 300;
+            text-decoration: none;
+            color: var(--bs-primary);
+        }
+        .collapse, .collapsing, .show {
+            margin-top: .5rem;
+            .card-body {
+                background-color: #fff;
+                border: none;
+                color: var(--bs-dark);
+                padding: 1rem;
+                font-weight: 300;
+                letter-spacing: .4px;
+            }
+        }
+    }
+
+    .container {
+        width: 400px;
+        max-width: 100%;
+        margin: auto;
+
+        .login-wrap {
+            border-radius: .5rem;
+            background-color: $fg_color;
+            padding: 2rem 1.5rem;
+            .heading {
+                margin-bottom: 1.5rem;
+
+                h1 {
+                    font-size: 2rem;
+                }
+            }
+
+            form {
+                .form-message {
+                    margin-bottom: 1rem;
+                    color: var(--bs-primary);
+                    font-weight: 300;
+                    font-size: .9rem
+                }
+                label {
+                    @include small-text;
+                    font-weight: 500;
+                    margin-bottom: 0.25rem;
+                    font-size: 0.9rem;
+                }
+                .form-check-label {
+                    font-weight: 400;
+                    font-size: .8rem;
+                }
+                .form-control {
+                    // font-weight: 300;
+                }
+                button {
+                    // color: $fg_color;
+                    // background-color: $bg_color;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
 }

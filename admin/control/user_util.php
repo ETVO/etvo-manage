@@ -2,7 +2,9 @@
 
 include_once dirname(__FILE__) . '/../index.php';
 
-define('USERS_STORAGE', ADMIN_DIR . '/system/users.json');
+if(!defined('USERS_STORAGE')) {
+    define('USERS_STORAGE', ADMIN_DIR . '/system/users.json');
+}
 
 function register_user($user_data)
 {
@@ -71,13 +73,14 @@ function edit_user($original_username, $user_data)
     }
 
     $user_data['updated_at'] = date('Y-m-d H:i');
-    
+
     // Get user current info
     $new_user = get_user_by_username($original_username, $stored_users);
     if (!$new_user)
         return [false, 'User not found'];
-        
+
     $new_user = array_replace($new_user, $user_data);
+    unset($new_user['original_username']);
 
     // edit in array
     if (!$new_user || !replace_user_by_username($original_username, $new_user, $stored_users)) {
@@ -149,8 +152,6 @@ function remove_user($username = null)
     }
 }
 
-
-
 function get_user_data($username = null)
 {
     if (!$username)
@@ -169,6 +170,7 @@ function get_user_data($username = null)
     }
 }
 
+
 function username_exists($username, $stored_users)
 {
     if ($stored_users)
@@ -178,14 +180,15 @@ function username_exists($username, $stored_users)
     return false;
 }
 
-
-function get_user_by_username($username, $stored_users)
-{
-    if ($stored_users)
-        foreach ($stored_users as $user) {
-            if ($username == $user['username']) return $user;
-        }
-    return false;
+if(!function_exists('get_user_by_username')){
+    function get_user_by_username($username, $stored_users)
+    {
+        if ($stored_users)
+            foreach ($stored_users as $user) {
+                if ($username == $user['username']) return $user;
+            }
+        return false;
+    }
 }
 
 function replace_user_by_username($username, $new_user, &$stored_users)

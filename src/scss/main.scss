@@ -57,7 +57,7 @@ form {
     border: solid 1px #1e1e1e;
     padding: 0.25rem 0.5rem;
 
-    font-size: .8rem;
+    font-size: 0.8rem;
 
     span.icon {
         color: var(--bs-primary);
@@ -93,5 +93,66 @@ form {
 
     span.text {
         color: var(--bs-primary);
+    }
+}
+
+// BRAND STYLING
+$brand_color: var(--bs-primary);
+$brand_color_alt: white;
+
+.etvo-manage-brand {
+    font-weight: bold;
+    color: $brand_color !important;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+
+    .etvo {
+        display: block;
+        font-family: "Lora", serif;
+        font-size: 1.1em;
+        letter-spacing: 1px;
+        line-height: 1;
+
+        span {
+            font-family: "Roboto", sans-serif;
+            font-size: 0.9em;
+            font-weight: 200;
+            font-style: normal;
+            margin-left: 0.25rem;
+        }
+    }
+
+    .site-title {
+        display: inline-block;
+        margin-top: 0.4rem;
+        margin-left: 0.75rem;
+
+        line-height: 1;
+        font-size: 0.5em;
+        font-weight: 600;
+        letter-spacing: 2px;
+
+        text-transform: uppercase;
+        border: solid 1px $brand_color;
+        color: $brand_color_alt;
+        background-color: $brand_color;
+
+        padding: 0.25rem 0.35rem;
+        border-radius: 0.25rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    > * {
+        &:hover,
+        &:active,
+        &:focus {
+            opacity: 0.7;
+        }
     }
 }

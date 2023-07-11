@@ -8,9 +8,18 @@ $data_source = 'system/users';
 $stored_users = get_data_from_dir(ADMIN_DIR . '/' . $data_source . '.json') ?? [];
 $model = get_model($data_source) ?? "CRITICAL: No Users Model file was found.";
 
-
 $status = false;
 $message = '';
+
+if (
+    isset($_GET['username']) 
+    && (isset($_GET['toggle']) || isset($_GET['remove']) || isset($_GET['really_remove']))
+    && $_SESSION['user']['username'] == $_GET['username']
+) {
+    unset($_GET['username']);
+    $status = false;
+    $message = "You cannot disable or remove your own user.";
+}
 
 $option = 'show';
 if (isset($_GET['add_new'])) {

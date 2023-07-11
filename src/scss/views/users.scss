@@ -6,6 +6,7 @@
     .table {
         th {
             font-family: "Lora", sans-serif;
+            font-size: 0.85rem;
         }
         tr {
             &.user-inactive td {
@@ -25,7 +26,7 @@
             }
         }
         td {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             letter-spacing: 0.2px;
             vertical-align: middle;
 
@@ -45,7 +46,7 @@
             &.actions {
                 width: 100px;
                 opacity: 0;
-                transition: opacity 0.1s;
+                transition: opacity  0.1s;
 
                 a {
                     font-size: 1rem;

@@ -20,5 +20,6 @@
             "type": "block",
             "block_id": "button"
         }
-    }
+    },
+    "help": "To add or edit projects, access the <a href=\"/projects/\">Projects</a> page."
 }

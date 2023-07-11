@@ -125,8 +125,9 @@ function save_in_dir(&$data, $save_in_dir)
     $data_source = $data['data_source'] ?? '';
     $keep_fields = $data['keep_fields'] ?? '';
 
-    $upload_dir = realpath(dirname(__FILE__)) . "/data/$data_source/";
-    $upload_uri = dirname($_SERVER['PHP_SELF']) . "/data/$data_source/";
+
+    $upload_dir = DATA_DIR . "/$data_source/";
+    $upload_uri = DATA_URL . "/$data_source/";
 
     foreach ($save_in_dir as $save_index => $field_key) {
         $field_to_save = $data[$field_key];

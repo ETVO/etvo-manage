@@ -7,8 +7,8 @@ import './quill';
         if (saveConfirmation !== null) {
             var unsavedChanges = false;
             var submittingForm = false;
-
-            $('input').change(function () {
+            
+            $('input, textarea').change(function () {
                 if (!unsavedChanges) unsavedChanges = true;
             });
 

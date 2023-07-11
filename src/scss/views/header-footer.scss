@@ -5,17 +5,43 @@ header {
             font-weight: bold;
             color: white !important;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.25rem;
 
             span.etvo {
-                font-weight: 600;
+                display: block;
                 font-family: "Lora", serif;
+                font-size: 1.1em;
+                letter-spacing: 1px;
+                line-height: 1;
+
+                span {
+                    font-family: "Roboto", sans-serif;
+                    font-size: 0.9em;
+                    font-weight: 200;
+                    font-style: normal;
+                    margin-left: 0.25rem;
+                }
             }
-            
+
             span.site-title {
-                font-size: 0.6em;
-                font-weight: 300;
-                margin-left: 0.25rem;
+                display: block;
+                margin-top: 0.4rem;
+                margin-left: 0.75rem;
+
+                line-height: 1;
+                font-size: 0.5em;
+                font-weight: 600;
                 letter-spacing: 2px;
+
+                text-transform: uppercase;
+                border: solid 1px #fff;
+                color: var(--bs-primary);
+                background-color: #fff;
+
+                padding: 0.25rem 0.35rem;
+                border-radius: 0.25rem;
             }
 
             &:hover,
@@ -40,6 +66,35 @@ header {
 
                 &.active {
                     font-weight: bold;
+                }
+            }
+        }
+
+        .logged-in {
+            margin-left: 1rem;
+            position: relative;
+            * {
+                font-family: "Lora", serif;
+            }
+
+            button {
+                color: white !important;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            ul {
+                margin-top: 0.5rem !important;
+                background-color: var(--bs-primary);
+                box-shadow: none;
+                font-size: 0.85rem;
+                li a {
+                    color: white !important;
+                    &:hover {
+                        opacity: 0.7;
+                        background: none;
+                        color: white;
+                    }
                 }
             }
         }

@@ -4,11 +4,12 @@ include_once dirname(__FILE__) . '/../index.php';
 
 define('DATA_PATH', BASE_DIR . '/data/');
 define('MODEL_PATH', ADMIN_DIR . '/model/');
+define('SYSTEM_DATA_PATH', ADMIN_DIR . '/system/');
 
 $settings = null;
 
 // Read settings
-$settings = get_data('settings');
+$settings = get_system_data('settings');
 
 function get_available_blocks()
 {
@@ -58,6 +59,13 @@ function get_data($name)
     return json_decode($data_json, true);
 }
 
+function get_system_data($name)
+{
+    $data_json = file_get_contents(SYSTEM_DATA_PATH . "/$name.json");
+    if (!$data_json) return null;
+    return json_decode($data_json, true);
+}
+
 function get_data_from_dir($dir)
 {
     $data_json = file_get_contents($dir);
@@ -76,10 +84,14 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
         ? $parent_block . '[' . $field_name . ']'
         : $field_name;
 
+    $field_id = ($type != 'blocks' && $type != 'block')
+        ? "field_$name"
+        : "";
+
     ob_start(); // Start HTML buffering
 ?>
     <div class="field <?php echo $type; ?>">
-        <label for="<?php echo $name; ?>">
+        <label <?= ($field_id) ? "for='$field_id'" : ""; ?>>
             <?php echo $label ?>
         </label>
         <?php
@@ -87,21 +99,21 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
         switch ($type):
             case 'hidden':
         ?>
-                <input type="hidden" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                <input type="hidden" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
             <?php
                 break;
 
             case 'string':
             case 'text':
-        ?>
-                <input type="text" class="form-control" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+            ?>
+                <input type="text" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
             <?php
                 break;
 
             case 'password':
             ?>
                 <div class="password">
-                    <input type="password" class="form-control" id="<?php echo $name ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                    <input type="password" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
                     <span class="password-toggle bi-eye-slash"></span>
                 </div>
             <?php
@@ -115,17 +127,17 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
 
             case 'textarea':
             ?>
-                <textarea name="<?php echo $name; ?>" id="<?php echo $name ?>" class="form-control" rows="2"><?php echo $value; ?></textarea>
+                <textarea name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-control" rows="2"><?php echo $value; ?></textarea>
             <?php
                 break;
 
             case 'select':
                 $options = $field['options'];
             ?>
-                <select name="<?php echo $name; ?>" id="<?php echo $name ?>" class="form-select">
+                <select name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-select">
                     <option value="" disabled selected>-- Select --</option>
-                    <?php foreach ($options as $option_value => $option_label) : 
-                        $selected = ($option_value == $value) ? 'selected' : ''?>
+                    <?php foreach ($options as $option_value => $option_label) :
+                        $selected = ($option_value == $value) ? 'selected' : '' ?>
                         <option value="<?= $option_value ?>" <?= $selected; ?>><?= $option_label ?></option>
                     <?php endforeach; ?>
                 </select>
@@ -147,8 +159,8 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
                         <span class="text">Remove</span>
                     </button>
 
-                    <input type="file" class="file form-control" name="<?php echo $name ?>" style="display: none">
-                    <input type="text" class="url form-control" name="<?php echo $name ?>" style="display: none" placeholder="Image URL">
+                    <input type="file" class="file form-control" id="<?= $field_id; ?>" name="<?php echo $name ?>" style="display: none">
+                    <input type="text" class="url form-control" id="<?= $field_id; ?>" name="<?php echo $name ?>" style="display: none" placeholder="Image URL">
                     <input type="hidden" class="value" name="<?php echo $name ?>" style="display: none" value="<?php echo $value; ?>">
 
                     <div class="d-flex load-options mb-2">
@@ -192,23 +204,11 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
         endswitch;
 
         if (isset($field['help'])) :
-            // $show = true;
-            // if (isset($field['conditions']['showHelp'])) {
-            //     $show = false;
-            //     $conditions = $field['conditions']['showHelp'];
-            //     foreach ($conditions as $var_name => $var_value) {
-            //         $show = $show || ($$var_name == $var_value);
-            //     }
-            // }
-            // if ($show) :
             ?>
-
-                <p class="field-help">
-                    <?= $field['help']; ?>
-                </p>
-
-        <?php 
-        // endif;
+            <p class="field-help">
+                <?= $field['help']; ?>
+            </p>
+        <?php
         endif; ?>
     </div>
 <?php
@@ -334,7 +334,6 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
             : $block_group_name;
     }
 
-
     ?>
 
     <fieldset class="block-field accordion-item" name="<?php echo $block_field_name; ?>" data-field-as-title="<?php echo $field_as_title; ?>" data-block-id="<?php echo $block_id; ?>">
@@ -366,8 +365,15 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
                             <span class="icon bi-arrow-down"></span>
                         </button>
                     <?php endif; ?>
-
                 </div>
+                <?php
+                if (isset($block_model['help'])) :
+                ?>
+                    <p class="block-help">
+                        <?= $block_model['help']; ?>
+                    </p>
+                <?php
+                endif; ?>
                 <?php foreach ($block_model['attributes'] as $key => $field) :
 
                     $value = $block[$key] ?? null;
@@ -377,6 +383,7 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
                 endforeach; ?>
             </div>
         </div>
+
     </fieldset>
 <?php
 }

@@ -10,7 +10,6 @@ if (!isset($attributes)) die('No attributes were found...');
 
             $value = $data[$key] ?? null;
 
-
             $key = explode(':', $key)[0];
             render_field($key, $field, $value);
         endforeach; ?>

@@ -4,4 +4,5 @@
 /assets/css
 /assets/fonts
 /assets/js
-/data/uploads/
+# /data/*
+# /data/*
