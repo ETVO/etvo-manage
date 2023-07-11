@@ -1,10 +1,10 @@
 <?php
+
 include_once CONTROL_DIR . '/auth_util.php';
 include_once CONTROL_DIR . '/util.php';
 
 $site_title = $settings['site_title'] ?? '';
 $site_url = $settings['site_url'] ?? '';
-
 
 $status = false;
 $message = '';

@@ -1,8 +1,27 @@
-<?php 
+<?php
 
 include_once dirname(__FILE__) . '/../index.php';
 
 define('USERS_STORAGE', ADMIN_DIR . '/system/users.json');
+
+if (!file_exists(USERS_STORAGE)) {
+    create_users_file();
+}
+init_if_no_users();
+
+function create_users_file()
+{
+    file_put_contents(USERS_STORAGE, '');
+}
+
+function init_if_no_users()
+{
+    $stored_users = json_decode(file_get_contents(USERS_STORAGE), true) ?? [];
+    if (count($stored_users) == 0) {
+        // No users registered
+        header('Location: /init');
+    }
+}
 
 function check_credentials($username, $password)
 {
@@ -40,10 +59,19 @@ function get_user_by_username($username, $stored_users)
 }
 
 
-function authenticate($user, $request)
+function authenticate(&$user, $request)
 {
     if (!isset($user['username']))
         return [false, 'You are not logged in.'];
+
+    $stored_users = json_decode(file_get_contents(USERS_STORAGE), true) ?? [];
+
+    if (!($check_user = get_user_by_username($user['username'], $stored_users))) {
+        return [false, 'User removed or username changed.'];
+    }
+
+    $user['access_level'] = $check_user['access_level'];
+    $user['active'] = $check_user['active'];
 
     if (
         isset(ALLOWED_ACCESS[$request])
@@ -54,7 +82,7 @@ function authenticate($user, $request)
     }
 
     if (!$user['active'])
-        return [false, 'User inactive.'];
+        return [false, 'User deactivated.'];
 
     if (session_expired($user))
         return [false, 'Session expired'];

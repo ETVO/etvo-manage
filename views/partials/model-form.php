@@ -13,6 +13,7 @@ if (!isset($attributes)) die('No attributes were found...');
             $key = explode(':', $key)[0];
             render_field($key, $field, $value);
         endforeach; ?>
+
         <?php if (isset($additional_attrs)) :
             foreach ($additional_attrs as $key => $field) :
 

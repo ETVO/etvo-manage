@@ -4,5 +4,5 @@
 /assets/css
 /assets/fonts
 /assets/js
-# /data/*
-# /data/*
+/data/*
+/admin/system/users.json

@@ -32,4 +32,19 @@ main {
         font-weight: bold;
         margin-bottom: .75rem;
     }
+
+    &.init {
+        .field.select, .back-to {
+            display: none;
+        }
+    }
+
+    &.index {
+        .dashboard-options a.nav-link {
+            color: var(--bs-primary);
+            font-size: 300;
+            margin: .5rem 0;
+            font-family: 'Lora', serif;
+        }
+    }
 }

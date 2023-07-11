@@ -9,13 +9,12 @@ include_once './const.php';
 $request = str_replace('/', '', $request);
 $request = explode('?', $request)[0];
 
-
-if ($request != 'login' && $request != 'init') {
+if ($request != 'login') {
     if (!isset($_SESSION['user'])) {
         header("Location: " . BASE_URL . "/login");
         exit;
     }
-
+    
     include_once CONTROL_DIR . '/auth_util.php';
 
     $response = authenticate($_SESSION['user'], $request);
@@ -47,10 +46,6 @@ switch ($request) {
 
     case 'login':
         require __DIR__ . $viewDir . 'login.php';
-        break;
-
-    case 'init':
-        require __DIR__ . $viewDir . 'init.php';
         break;
 
     default:

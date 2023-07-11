@@ -226,7 +226,6 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
 
 function render_block($blocks, $field_attributes, $block_group_name = null, $save_in_dir = false, $has_parent = true)
 {
-
     if ($save_in_dir) {
         foreach ($blocks as $key => $block_path) {
             $blocks[$key] = get_data_from_dir($block_path['filepath']['dir']);
