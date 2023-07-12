@@ -6,9 +6,8 @@ $viewDir = '/views/';
 
 include_once './const.php';
 
-$request = str_replace('/', '', $request);
+$request = str_replace([BASE_REQUEST, '/'], '', $request);
 $request = explode('?', $request)[0];
-
 
 if ($request != 'login' && $request != 'init') {
     if (!isset($_SESSION['user'])) {
@@ -32,25 +31,25 @@ if ($request != 'login' && $request != 'init') {
 switch ($request) {
     case '':
     case '/':
-        require __DIR__ . $viewDir . 'index.php';
+        require BASE_DIR . $viewDir . 'index.php';
         break;
 
     case 'content':
     case 'projects':
         $data_source = $request;
-        require __DIR__ . $viewDir . 'model-page.php';
+        require BASE_DIR . $viewDir . 'model-page.php';
         break;
 
     case 'users':
-        require __DIR__ . $viewDir . 'users.php';
+        require BASE_DIR . $viewDir . 'users.php';
         break;
 
     case 'login':
-        require __DIR__ . $viewDir . 'login.php';
+        require BASE_DIR . $viewDir . 'login.php';
         break;
 
     case 'init':
-        require __DIR__ . $viewDir . 'init.php';
+        require BASE_DIR . $viewDir . 'init.php';
         break;
 
     default:

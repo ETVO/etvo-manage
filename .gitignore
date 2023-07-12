@@ -1,6 +1,8 @@
 /.vscode
 /node_modules
+/vendor
 /package-lock.json
+/composer-lock.json
 /assets/css
 /assets/fonts
 /assets/js
