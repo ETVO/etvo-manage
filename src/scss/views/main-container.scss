@@ -40,11 +40,16 @@ main {
     }
 
     &.index {
+        padding: 5rem 0;
         .dashboard-options a.nav-link {
             color: var(--bs-primary);
             font-size: 300;
             margin: .5rem 0;
             font-family: 'Lora', serif;
+
+            &:hover {
+                opacity: .6;
+            }
         }
     }
 }

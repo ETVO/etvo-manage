@@ -4,12 +4,17 @@
     "default_anchor": "hero",
     "attributes": {
         "title": {
-            "label": "Title",
+            "label": "Título",
             "type": "string"
         },
-        "desc": {
-            "label": "Description",
-            "type": "textarea"
+        "super_title": {
+            "label": "Título em Destaque",
+            "type": "string"
+        },
+        "action": {
+            "label": "Ação",
+            "type": "block",
+            "block_id": "button"
         }
     }
 }

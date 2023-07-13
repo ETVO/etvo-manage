@@ -3,3 +3,8 @@ RewriteBase /etvo-manage/
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ /etvo-manage/index.php [QSA,L]
+
+<Files "*.json">
+    Order Deny,Allow
+    Deny from all
+</Files>

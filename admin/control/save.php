@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
 
     save_in_dir($processed_data, $save_in_dir);
 
-    unset($processed_data['form_action']);
+    unset($processed_data['form_id']);
     unset($processed_data['data_source']);
     unset($processed_data['has_image']);
     unset($processed_data['save_in_dir']);
@@ -92,17 +92,17 @@ function upload_image($image, $upload_dir, $upload_name)
         mkdir($upload_dir, 0755, true);
     }
 
-    $new_upload_name = '';
+    // $new_upload_name = '';
 
-    // Check if file already exists
-    $i = 1;
-    while (file_exists($upload_file)) {
-        $new_upload_name = $upload_name . "_$i";
-        $upload_file = $upload_dir . $new_upload_name . ".$file_type";
-        $i++;
-    }
+    // // Check if file already exists
+    // $i = 1;
+    // while (file_exists($upload_file)) {
+    //     $new_upload_name = $upload_name . "_$i";
+    //     $upload_file = $upload_dir . $new_upload_name . ".$file_type";
+    //     $i++;
+    // }
 
-    if ($new_upload_name) $upload_name = $new_upload_name;
+    // if ($new_upload_name) $upload_name = $new_upload_name;
 
     // Check file size
     if ($image["size"] > 5000000) return false;

@@ -1,26 +1,19 @@
 {
     "fields": {
-        "first_name": {
-            "label": "First Name",
+        "name": {
+            "label": "Nome",
             "type": "text",
-            "required": true,
-            "in_row": true
-        },
-        "last_name": {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "in_row": true
+            "required": true
         },
         "email": {
             "label": "Email",
             "type": "email",
             "required": true
         },
-        "industry": {
-            "label": "Industry / Field of Work",
+        "telephone": {
+            "label": "Telefone",
             "type": "text",
-            "required": false
+            "required": true
         },
         "message": {
             "label": "Message",
@@ -29,10 +22,10 @@
             "attrs": "rows=\"3\""
         }
     },
-    "to": "etvo@etvo.me",
-    "subject": "Contact Form Submission",
+    "to": "info@velvetcare.pt",
+    "subject": "Contacto Submetido no Formulário",
     "response": {
-        "success": "Thank you for your message! You will be contacted soon.",
-        "error": "Unfortunately, there was an error. Try again later."
+        "success": "A sua mensagem foi recebida e será respondida em breve!",
+        "error": "Ocorreu um erro. Contacte-nos através de info@velvetcare.pt."
     }
 }

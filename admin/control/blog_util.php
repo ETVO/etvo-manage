@@ -1,9 +1,10 @@
 <?php
 include_once dirname(__FILE__) . '/../index.php';
+include_once CONTROL_DIR . '/util.php';
 
 define('WP_URL', 'http://blog-velvetcare.test');
 define('API_URL', WP_URL . '/wp-json/wp/v2/');
-define('SITE_URL', 'http://etvo.test');
+define('SITE_URL', $settings['site_url']);
 
 function make_api_request($endpoint, $data = null, $associative = true)
 {
@@ -100,7 +101,7 @@ function render_search()
 {
 ?>
     <form action="" id="searchBar">
-        <input type="text" class="search form-control" id="searchInput" placeholder="Search...">
+        <input type="text" class="search form-control" id="searchInput" placeholder="Pesquisar...">
         <span class="bi-search" id="searchSubmit"></span>
     </form>
 <?php

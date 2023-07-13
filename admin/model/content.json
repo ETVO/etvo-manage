@@ -1,13 +1,13 @@
 {
-    "title": "Content",
-    "desc": "Edit the content of your main page",
+    "title": "Conteúdo",
+    "desc": "Para editar o conteúdo da sua página principal.",
     "attributes": {
         "page_title": {
-            "label": "Page title",
+            "label": "Título da Página",
             "type": "string"
         },
         "blocks": {
-            "label": "Main Blocks",
+            "label": "Blocos",
             "type": "blocks"
         }
     }
