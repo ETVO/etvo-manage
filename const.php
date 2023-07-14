@@ -7,7 +7,7 @@ function is_subdomain() {
 $root_script_name = basename(__DIR__);
 
 
-error_reporting(0);
+// error_reporting(0);
 
 define('BASE_REQUEST', is_subdomain() ? '' : $root_script_name);
 
@@ -23,3 +23,5 @@ define('VIEW_URL', BASE_URL . '/views');
 define('DATA_URL', BASE_URL . '/data');
 define('ADMIN_URL', BASE_URL . '/admin');
 define('CONTROL_URL', ADMIN_URL . '/control');
+
+define('WP_URL', 'http://blog.velvetcare.pt');

@@ -2,7 +2,6 @@
 include_once dirname(__FILE__) . '/../index.php';
 include_once CONTROL_DIR . '/util.php';
 
-define('WP_URL', 'http://blog-velvetcare.test');
 define('API_URL', WP_URL . '/wp-json/wp/v2/');
 define('SITE_URL', $settings['site_url']);
 

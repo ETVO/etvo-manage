@@ -1,27 +1,33 @@
 {
     "fields": {
         "name": {
-            "label": "Nome",
+            "placeholder": "Nome",
             "type": "text",
             "required": true
         },
         "email": {
-            "label": "Email",
+            "placeholder": "Email",
             "type": "email",
             "required": true
         },
         "telephone": {
-            "label": "Telefone",
+            "placeholder": "Telefone",
             "type": "text",
             "required": true
         },
         "message": {
-            "label": "Message",
+            "placeholder": "Mensagem",
             "type": "textarea",
             "required": false,
             "attrs": "rows=\"3\""
         }
     },
+    "errors": {
+        "required": "[label] é obrigatório.",
+        "email_invalid": "Por favor insira um email válido.",
+        "honeypot": "Spam detectado."
+    },
+    "honeypot": "honey",
     "to": "info@velvetcare.pt",
     "subject": "Contacto Submetido no Formulário",
     "response": {
