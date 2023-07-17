@@ -7,6 +7,11 @@
             "label": "Título",
             "type": "string"
         },
+        "image": {
+            "label": "Imagem",
+            "type": "block",
+            "block_id": "image_alt"
+        },
         "super_title": {
             "label": "Título em Destaque",
             "type": "string"

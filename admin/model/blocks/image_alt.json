@@ -1,0 +1,14 @@
+{
+    "title": "Imagem c/ Alt",
+    "icon": "image",
+    "attributes": {
+        "src": {
+            "label": "Imagem",
+            "type": "image"
+        },
+        "alt": {
+            "label": "Texto Alternativo",
+            "type": "string"
+        }
+    }
+}

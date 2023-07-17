@@ -25,3 +25,4 @@ define('ADMIN_URL', BASE_URL . '/admin');
 define('CONTROL_URL', ADMIN_URL . '/control');
 
 define('WP_URL', 'http://blog.velvetcare.pt');
+// define('WP_URL', 'http://blog-velvetcare.test');

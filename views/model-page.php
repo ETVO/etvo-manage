@@ -16,7 +16,7 @@ $data = get_data($data_source);
 
 ?>
 
-<main class="content container">
+<main class="<?=  $data_source; ?> container">
     <input type="hidden" id="saveConfirmation">
     <div class="heading">
         <h1 class="title"><?= $model['title']; ?></h1>

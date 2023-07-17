@@ -2,7 +2,7 @@ import './image_upload.js';
 
 (jQuery)(
     function ($) {
-        const UTIL_API_URL = '/etvo-manage/admin/api/';
+        const UTIL_API_URL = '/etvo-manage/admin/api/use_blocks_util.php';
 
         $('form').on('submit', function (e) {
             e.preventDefault();
@@ -60,7 +60,7 @@ import './image_upload.js';
             }
 
             $.ajax({
-                url: UTIL_API_URL + 'use_util.php',
+                url: UTIL_API_URL,
                 data: {
                     function: 'render_block_field',
                     args: JSON.stringify([
