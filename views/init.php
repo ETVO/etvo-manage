@@ -1,6 +1,8 @@
 <?php
 include_once CONTROL_DIR . '/util.php';
 
+$site_title = $settings['site_title'] ?? '';
+
 $data_source = 'system/users';
 
 $stored_users = get_data_from_dir(ADMIN_DIR . '/' . $data_source . '.json') ?? [];
