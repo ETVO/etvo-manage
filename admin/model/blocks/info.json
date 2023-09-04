@@ -1,0 +1,24 @@
+{
+    "title": "Contacto/Informação",
+    "icon": "info-circle",
+    "field_as_icon": "icon",
+    "field_as_title": "content",
+    "attributes": {
+        "icon": {
+            "label": "Ícone",
+            "type": "string"
+        },
+        "content": {
+            "label": "Conteúdo",
+            "type": "string"
+        },
+        "obs": {
+            "label": "Observação",
+            "type": "string"
+        },
+        "link": {
+            "label": "Link",
+            "type": "string"
+        }
+    }
+}

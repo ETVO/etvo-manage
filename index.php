@@ -5,6 +5,7 @@ $request = $_SERVER['REQUEST_URI'];
 $viewDir = '/views/';
 
 include_once './const.php';
+include_once CONTROL_DIR . '/util.php';
 
 $request = str_replace([BASE_REQUEST, '/'], '', $request);
 $request = explode('?', $request)[0];
@@ -35,7 +36,7 @@ switch ($request) {
         break;
 
     case 'content':
-    case 'projects':
+    case 'info':
         $data_source = $request;
         require BASE_DIR . $viewDir . 'model-page.php';
         break;

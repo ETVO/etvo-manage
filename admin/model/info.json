@@ -1,0 +1,35 @@
+{
+    "title": "Informações do Site",
+    "desc": "Para editar informações do website.",
+    "attributes": {
+        "main_tel": {
+            "label": "Contacto Principal",
+            "type": "string",
+            "help": "Contacto que aparece no cabeçalho e no rodapé"
+        },
+        "contacts": {
+            "label": "Contactos",
+            "type": "blocks",
+            "allowed_blocks": [
+                "info"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            }
+        },
+        "socials": {
+            "label": "Redes Sociais",
+            "type": "blocks",
+            "allowed_blocks": [
+                "social"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            }
+        }
+    }
+}

@@ -1,9 +1,10 @@
 {
-    "title": "Botão",
-    "icon": "box-arrow-right",
+    "title": "Social",
+    "icon": "at",
+    "field_as_icon": "icon",
     "attributes": {
-        "text": {
-            "label": "Texto",
+        "icon": {
+            "label": "Ícone",
             "type": "string"
         },
         "link": {

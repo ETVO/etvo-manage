@@ -2,7 +2,7 @@ import './image_upload.js';
 
 (jQuery)(
     function ($) {
-        const UTIL_URL = '/manage/util/';
+        const UTIL_API_URL = '/etvo-manage/admin/api/use_blocks_util.php';
 
         $('form').on('submit', function (e) {
             e.preventDefault();
@@ -60,7 +60,7 @@ import './image_upload.js';
             }
 
             $.ajax({
-                url: UTIL_URL + 'use_util.php',
+                url: UTIL_API_URL,
                 data: {
                     function: 'render_block_field',
                     args: JSON.stringify([
@@ -74,7 +74,7 @@ import './image_upload.js';
                 dataType: "html",
                 success: function (data) {
                     $blocks_div.append(data);
-                    trackFieldAsTitle($blocks_div.children('.block-field').last());
+                    trackFieldAsField($blocks_div.children('.block-field').last());
                 }
             });
 
@@ -118,7 +118,6 @@ import './image_upload.js';
                 $block_field.next().after($block_field);
             }
 
-            // updateIndexes($blocks_div);
         }
 
         function updateIndexes(div) {
@@ -131,7 +130,24 @@ import './image_upload.js';
             });
         }
 
-        $('.block-field').each(function () { trackFieldAsTitle(this) });
+        $('.block-field').each(function () { trackFieldAsField(this) });
+
+        function trackFieldAsField(blockField) {
+            trackFieldAsIcon(blockField);
+            trackFieldAsTitle(blockField);
+        }
+
+        function trackFieldAsIcon(blockField) {
+            const field_as_icon = $(blockField).data('field-as-icon');
+            if (field_as_icon == '') return;
+            const blockName = $(blockField).attr('name');
+
+            var fieldName = blockName + '[' + field_as_icon + ']';
+            
+            $(blockField).find('[name="' + fieldName + '"').on('keyup change', function () {
+                updateBlockFieldIcon(blockField, $(this).val());
+            });
+        }
 
         function trackFieldAsTitle(blockField) {
             const field_as_title = $(blockField).data('field-as-title');
@@ -143,6 +159,21 @@ import './image_upload.js';
             $(blockField).find('[name="' + fieldName + '"').on('keyup change', function () {
                 updateBlockFieldTitle(blockField, $(this).val());
             });
+        }
+
+        function updateBlockFieldIcon(blockField, value = null) {
+            var blockIcon = $(blockField).find('#blockIcon').eq(0);
+
+            blockIcon.removeClass();
+            if (value != '') {
+                blockIcon.addClass('bi-'+ value);
+                if(window.getComputedStyle(blockIcon[0], "before").getPropertyValue('content') != 'none') {
+                    return;
+                }
+            }
+            
+            blockIcon.removeClass();
+            blockIcon.addClass('bi-'+ blockIcon.data('og-icon'));
         }
 
         function updateBlockFieldTitle(blockField, value = null) {

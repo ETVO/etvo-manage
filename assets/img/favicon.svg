@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152.95 180.05">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ec2848;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Roboto-Regular, Roboto;
+        font-size: 67.6px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <rect class="cls-1" x="11.75" y="25.13" width="141.21" height="141.21" rx="70.6" ry="70.6"/>
+    <text class="cls-2" transform="translate(0 57.83)"><tspan x="0" y="0">ma</tspan><tspan x="0" y="51.95">na</tspan><tspan x="0" y="103.91">ge</tspan></text>
+  </g>
+</svg>

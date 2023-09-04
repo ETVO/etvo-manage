@@ -1,3 +1,4 @@
+$primary: #ed2647;
 
 main {
     padding: 2rem 0;
@@ -5,7 +6,7 @@ main {
 
     .heading {
         margin-bottom: 1rem;
-        
+
         .desc {
             @include small-text();
             font-weight: 300;
@@ -17,34 +18,69 @@ main {
     .back-to {
         display: block;
         color: var(--bs-primary);
-        font-size: .85rem;
+        font-size: 0.85rem;
         text-decoration: none;
-        margin: .5rem 0;
-        
+        margin: 0.5rem 0;
+
         &::before {
-            content: '←';
-            margin-right: .5rem;
+            content: "←";
+            margin-right: 0.5rem;
         }
     }
-    
+
     .section-title {
         @include small-text();
         font-weight: bold;
-        margin-bottom: .75rem;
+        margin-bottom: 0.75rem;
     }
 
     &.init {
-        .field.select, .back-to {
+        .field.select,
+        .back-to {
             display: none;
         }
     }
 
     &.index {
+        padding: 5rem 0;
         .dashboard-options a.nav-link {
             color: var(--bs-primary);
             font-size: 300;
-            margin: .5rem 0;
-            font-family: 'Lora', serif;
+            margin: 0.5rem 0;
+            font-family: "Lora", serif;
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+
+    &.info {
+        .model .model-view {
+            .field.blocks {
+                margin: 1.5rem 0;
+                // padding-top: 1.5rem;
+                // border-top: dashed 1px mix(white, $primary, 60%);
+
+                // & > label {
+                //     font-size: 1.1rem;
+                //     margin-left: -.5rem;
+                // }
+    
+                .add-new.top-level .icon-btn {
+                    font-size: 0.8rem !important;
+                }
+
+                .blocks {
+                    .block-field.accordion-item {
+                        padding: .5rem 1.25rem;
+                        .block-title.accordion-header {
+                            margin-left: -1.875rem;
+                            font-size: calc(1rem + 0.3vw);
+                        }
+                    }
+                }
+            }
         }
     }
 }

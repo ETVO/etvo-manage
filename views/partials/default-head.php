@@ -14,3 +14,5 @@
 <link rel="stylesheet" href="<?= BASE_URL; ?>/assets/css/bootstrap.css">
 <link rel="stylesheet" href="<?= BASE_URL; ?>/assets/fonts/bootstrap-icons/bootstrap-icons.css">
 <link rel="stylesheet" href="<?= BASE_URL; ?>/assets/css/main.css">
+
+<link rel="shortcut icon" href="<?= BASE_URL; ?>/assets/img/favicon.svg" type="image/svg">

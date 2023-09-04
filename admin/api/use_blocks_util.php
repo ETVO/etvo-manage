@@ -1,7 +1,9 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-include dirname(__FILE__) . '/../util.php';
+include dirname(__FILE__) . '/../index.php';
+include CONTROL_DIR . '/util.php';
+include CONTROL_DIR . '/blocks_util.php';
 
 $function = $_GET['function'];
 $args = isset($_GET['args'])

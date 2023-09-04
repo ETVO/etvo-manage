@@ -1,0 +1,15 @@
+{
+    "title": "Localização",
+    "icon": "pin-map",
+    "field_as_title": "title",
+    "attributes": {
+        "title": {
+            "label": "Título",
+            "type": "string"
+        },
+        "content": {
+            "label": "Conteúdo",
+            "type": "textarea"
+        }
+    }
+}

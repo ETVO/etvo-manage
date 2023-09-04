@@ -1,6 +1,6 @@
 <?php
 
-include_once CONTROL_DIR . '/util.php';
+include_once CONTROL_DIR . '/blocks_util.php';
 include_once CONTROL_DIR . '/auth_util.php';
 
 $site_title = $settings['site_title'] ?? '';
@@ -8,21 +8,17 @@ $site_title = $settings['site_title'] ?? '';
 if (!isset($active_menu))
     $active_menu = 0;
 
-$main_link = '/';
+$main_link = BASE_URL . '/';
 
-$menu_options = array(
+$menu_options = $settings['menu_options'] ?? array(
     'content' => array(
         'name' => 'Content',
-        'link' => BASE_URL . '/content/'
-    ),
-    'projects' => array(
-        'name' => 'Projects',
-        'link' => BASE_URL . '/projects/'
+        'link' => '/content/'
     ),
     'users' => array(
         'name' => 'Users',
-        'link' => BASE_URL . '/users/'
-    ),
+        'link' => '/users/'
+    )
 );
 ?>
 
@@ -51,14 +47,14 @@ $menu_options = array(
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                         <?php foreach ($menu_options as $key => $option) :
                             if (is_access_allowed_here($_SESSION['user']['access_level'], $key)) :
-                                $href = "href='{$option['link']}'";
+                                $href = BASE_URL . $option['link'];
 
                                 $is_current = ($key === $active_menu)
                                     ? " class='nav-link active' aria-current='page'"
                                     : " class='nav-link'";
                         ?>
                                 <li class="nav-item" id="<?php echo $key; ?>">
-                                    <a <?php echo $href . $is_current; ?>><?= $option['name']; ?></a>
+                                    <a href="<?= $href; ?>" <?= $is_current; ?>><?= $option['name']; ?></a>
                                 </li>
                         <?php endif;
                         endforeach; ?>
@@ -71,7 +67,7 @@ $menu_options = array(
                             </span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/login/?logout">Log Out</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>/login/?logout">Log Out</a></li>
                         </ul>
                     </div>
                 </div>

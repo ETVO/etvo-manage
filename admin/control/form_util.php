@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 include_once dirname(__FILE__) . '/../index.php';
 
 //Load Composer's autoloader
-require $base_dir . '/vendor/autoload.php';
+require BASE_DIR . '/vendor/autoload.php';
 
 function filter_field($value, $type, $required)
 {
@@ -65,54 +65,54 @@ function render_form_fields($fields)
 {
     $in_row = false;
 
-    foreach ($fields as $name => $field) :
-        $label = $field['label'];
-        $type = $field['type'];
-        $required = $field['required'] ? 'required' : '';
-        $attrs = $field['attrs'] ?? '';
-
+    foreach ($fields as $name => $field) {
         $prev_in_row = $in_row;
         $in_row = $field['in_row'] ?? false;
 
-        if ($in_row) :
-
-            if (!$prev_in_row) :
-?>
-                <div class="mb-3 row g-3 row-cols-1 row-cols-md-2">
-                <?php
-            endif;
-                ?>
-                <div class="col field-<?php echo $name; ?>">
-                    <?php render_form_field($name, $label, $type, $required, $attrs); ?>
-                </div>
-
-                <?php
-
-            else :
-                if ($prev_in_row) :
-                ?>
-                </div>
-            <?php
-                endif;
-            ?>
-            <div class="mb-3">
-                <?php render_form_field($name, $label, $type, $required, $attrs); ?>
-            </div>
-    <?php
-            endif;
-        endforeach;
+        // Logic to display fields in columns
+        if ($in_row) {
+            // If in row
+            if (!$prev_in_row) {
+                // If previous was not in row, open row
+                echo '<div class="mb-3 row g-3 row-cols-1 row-cols-md-2">';
+            }
+            // Render field as a column
+            echo "<div class='col field-$name'>";
+            render_form_field($name, $field);
+            echo "</div>";
+        } else {
+            // If not in row
+            if ($prev_in_row) {
+                // If previous was in row, close row
+                echo '</div>';
+            }
+            // Render field wrapped by simple margin
+            echo '<div class="mb-3">';
+            render_form_field($name, $field);
+            echo '</div>';
+        }
     }
+}
 
-    function render_form_field($name, $label, $type, $required, $attrs)
-    {
-    ?>
-    <label for="<?php echo $name; ?>"><?php echo $label; ?></label>
-    <?php if ($type == 'textarea') : ?>
-        <textarea name="<?php echo $name; ?>" class="form-control" <?php echo $required; ?> <?= $attrs; ?>>
-        </textarea>
-    <?php else : ?>
-        <input type="<?php echo $type; ?>" name="<?php echo $name; ?>" class="form-control" <?php echo $required; ?> <?= $attrs; ?>>
-    <?php endif; ?>
-    <div class="invalid-feedback"></div>
-<?php
-    }
+function render_form_field($name, $field)
+{
+
+    $label = $field['label'] ?? '';
+    $placeholder = $field['placeholder'] ?? '';
+    $type = $field['type'];
+    $required = $field['required'] ? 'required' : '';
+    $attrs = $field['attrs'] ?? '';
+
+    if ($placeholder)
+        $attrs .= "placeholder='$placeholder'";
+
+    if ($label)
+        echo "<label for='$name'>$label</label>";
+
+    if ($type == 'textarea')
+        echo "<textarea name='$name' class='form-control' $required $attrs></textarea>";
+    else
+        echo "<input type='$type' name='$name' class='form-control' $required $attrs>";
+
+    echo '<div class="invalid-feedback"></div>';
+}

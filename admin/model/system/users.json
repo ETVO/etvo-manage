@@ -1,28 +1,28 @@
 {
-    "title": "Users",
-    "desc": "Users can log into this dashboard to edit the website's content.",
+    "title": "Usuários",
+    "desc": "Usuários podem entrar nesse painel e editar o conteúdo do site.",
     "attributes": {
         "name": {
-            "label": "Name",
+            "label": "Nome",
             "type": "string"
         },
         "username": {
-            "label": "Username",
+            "label": "Usuário",
             "type": "string"
         },
         "access_level": {
-            "label": "Access Level",
+            "label": "Nível de Acesso",
             "type": "select",
             "options": {
                 "admin": "Admin",
                 "editor": "Editor"
             },
-            "help": "Admins have full access. Editors cannot edit Users nor Settings."
+            "help": "Admins têm acesso total. Editores não podem editar Usuários nem Configurações."
         },
         "password": {
-            "label": "Password",
+            "label": "Senha",
             "type": "password",
-            "help": "Leave field empty to keep password unchanged."
+            "help": "Deixe o campo vazio para manter a senha atual."
         }
     }
 }

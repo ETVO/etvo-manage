@@ -102,8 +102,24 @@ header {
 }
 
 footer {
-    padding: 1rem;
+    padding: 1rem 0;
     text-align: center;
-    color: #666;
     font-weight: 300;
+    font-family: "Lora", serif;
+    color: var(--bs-dark);
+    
+    .link {
+        color: #aaa;
+        font-size: .9rem;
+        margin-top: .25rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            color: var(--bs-primary) !important;
+        }
+    }
 }
