@@ -1,6 +1,8 @@
 <?php
 include_once CONTROL_DIR . '/util.php';
 
+$site_title = $settings['site_title'] ?? '';
+
 $data_source = 'system/users';
 
 try {
@@ -39,8 +41,6 @@ if ($message != '') {
     echo '<script>alert("' . $status_label . '\n' . $message . '");';
     echo 'window.location.href="?show";</script>';
 }
-
-$site_title = $settings['site_title'] ?? '';
 
 ?>
 
