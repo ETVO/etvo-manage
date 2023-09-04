@@ -1,18 +1,18 @@
 {
-    "site_title": "VelvetCare",
-    "site_url": "https://velvetcare.pt",
+    "site_title": "ETVO",
+    "site_url": "http://etvo.test",
     "menu_options": {
         "content": {
-            "name": "Conteúdo",
+            "name": "Content",
             "link": "/content/"
         },
-        "users": {
-            "name": "Usuários",
-            "link": "/users/"
+        "projects": {
+            "name": "Projects",
+            "link": "/projects/"
         },
-        "info": {
-            "name": "Informações",
-            "link": "/info/"
+        "users": {
+            "name": "Users",
+            "link": "/users/"
         }
     }
 }

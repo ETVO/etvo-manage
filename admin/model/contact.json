@@ -30,13 +30,13 @@
         }
     },
     "errors": {
-        "required": "[label] é obrigatório.",
-        "email_invalid": "Por favor insira um email válido.",
-        "honeypot": "Spam detectado."
+        "required": "[label] is required.",
+        "email_invalid": "Please insert a valid email.",
+        "honeypot": "Spam detected."
     },
     "honeypot": "honey",
-    "to": "info@velvetcare.pt",
-    "subject": "Contacto Submetido no Formulário",
+    "to": "etvo@etvo.me",
+    "subject": "Contact Form Submission",
     "response": {
         "success": "Thank you for your message! You will be contacted soon.",
         "error": "Unfortunately, there was an error. Try again later."
