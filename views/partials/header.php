@@ -13,15 +13,15 @@ $main_link = '/';
 $menu_options = array(
     'content' => array(
         'name' => 'Content',
-        'link' => '/content/'
+        'link' => BASE_URL . '/content/'
     ),
     'projects' => array(
         'name' => 'Projects',
-        'link' => '/projects/'
+        'link' => BASE_URL . '/projects/'
     ),
     'users' => array(
         'name' => 'Users',
-        'link' => '/users/'
+        'link' => BASE_URL . '/users/'
     ),
 );
 ?>
@@ -30,21 +30,9 @@ $menu_options = array(
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>manage <?php echo $site_title; ?></title>
+    <?php $page_title = "Manage $site_title"; ?>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link as="style" rel="stylesheet preload" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
-
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/fonts/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <?php include VIEW_DIR . '/partials/default-head.php'; ?>
 </head>
 
 <body>
@@ -62,17 +50,18 @@ $menu_options = array(
                 <div class="collapse navbar-collapse" id="manageNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                         <?php foreach ($menu_options as $key => $option) :
-                            if(is_access_allowed_here($_SESSION['user']['access_level'], $key)) :
-                            $href = "href='{$option['link']}'";
+                            if (is_access_allowed_here($_SESSION['user']['access_level'], $key)) :
+                                $href = "href='{$option['link']}'";
 
-                            $is_current = ($key === $active_menu)
-                                ? " class='nav-link active' aria-current='page'"
-                                : " class='nav-link'";
+                                $is_current = ($key === $active_menu)
+                                    ? " class='nav-link active' aria-current='page'"
+                                    : " class='nav-link'";
                         ?>
-                            <li class="nav-item" id="<?php echo $key; ?>">
-                                <a <?php echo $href . $is_current; ?>><?= $option['name']; ?></a>
-                            </li>
-                        <?php endif; endforeach; ?>
+                                <li class="nav-item" id="<?php echo $key; ?>">
+                                    <a <?php echo $href . $is_current; ?>><?= $option['name']; ?></a>
+                                </li>
+                        <?php endif;
+                        endforeach; ?>
                     </ul>
                     <div class="logged-in">
                         <button class="dropdown-toggle btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">

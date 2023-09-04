@@ -4,7 +4,11 @@ function is_subdomain() {
     return dirname($_SERVER['SCRIPT_NAME']) == '/';
 }
 
-define('BASE_DIR', is_subdomain() ? __DIR__ : __DIR__);
+error_reporting(0);
+
+define('BASE_REQUEST', is_subdomain() ? '' : dirname($_SERVER['SCRIPT_NAME']));
+
+define('BASE_DIR', __DIR__);
 define('VIEW_DIR', BASE_DIR . '/views');
 define('DATA_DIR', BASE_DIR . '/data');
 define('ADMIN_DIR', BASE_DIR . '/admin');
