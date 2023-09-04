@@ -42,8 +42,6 @@ if ($message != '') {
     echo 'window.location.href="?show";</script>';
 }
 
-$site_title = $settings['site_title'] ?? '';
-
 ?>
 
 <!DOCTYPE html>
