@@ -1,9 +1,9 @@
 {
-    "title": "Imagem",
+    "title": "Image",
     "icon": "image",
     "attributes": {
         "src": {
-            "label": "Imagem",
+            "label": "Image",
             "type": "image"
         }
     }

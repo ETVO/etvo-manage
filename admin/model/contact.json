@@ -1,22 +1,29 @@
 {
     "fields": {
-        "name": {
-            "placeholder": "Nome",
+        "first_name": {
+            "label": "First Name",
             "type": "text",
-            "required": true
+            "required": true,
+            "in_row": true
+        },
+        "last_name": {
+            "label": "Last Name",
+            "type": "text",
+            "required": true,
+            "in_row": true
         },
         "email": {
-            "placeholder": "Email",
+            "label": "Email",
             "type": "email",
             "required": true
         },
-        "telephone": {
-            "placeholder": "Telefone",
+        "industry": {
+            "label": "Industry / Field of Work",
             "type": "text",
-            "required": true
+            "required": false
         },
         "message": {
-            "placeholder": "Mensagem",
+            "label": "Message",
             "type": "textarea",
             "required": false,
             "attrs": "rows=\"3\""
@@ -31,7 +38,7 @@
     "to": "info@velvetcare.pt",
     "subject": "Contacto Submetido no Formulário",
     "response": {
-        "success": "A sua mensagem foi recebida e será respondida em breve!",
-        "error": "Ocorreu um erro. Contacte-nos através de info@velvetcare.pt."
+        "success": "Thank you for your message! You will be contacted soon.",
+        "error": "Unfortunately, there was an error. Try again later."
     }
 }

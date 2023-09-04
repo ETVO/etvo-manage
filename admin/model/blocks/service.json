@@ -1,18 +1,23 @@
 {
-    "title": "Serviço",
+    "title": "Service",
     "icon": "box",
-    "field_as_title": "name",
+    "default_anchor": "service",
+    "field_as_title": "title",
     "attributes": {
-        "name": {
-            "label": "Nome",
+        "title": {
+            "label": "Title",
             "type": "string"
         },
-        "image": {
-            "label": "Imagem",
-            "type": "image"
+        "icon": {
+            "label": "Icon",
+            "type": "string"
         },
         "description": {
-            "label": "Descrição",
+            "label": "Description",
+            "type": "textarea"
+        },
+        "is_for_me": {
+            "label": "Is this for me?",
             "type": "textarea"
         }
     }

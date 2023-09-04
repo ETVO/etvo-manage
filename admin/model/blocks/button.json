@@ -1,9 +1,13 @@
 {
-    "title": "Botão",
+    "title": "Button",
     "icon": "box-arrow-right",
     "attributes": {
+        "caption": {
+            "label": "Caption",
+            "type": "string"
+        },
         "text": {
-            "label": "Texto",
+            "label": "Text",
             "type": "string"
         },
         "link": {

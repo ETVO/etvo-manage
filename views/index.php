@@ -6,8 +6,8 @@ include  VIEW_DIR . '/partials/header.php';
 
 <main class="index container text-center">
     <div class="heading">
-        <h1 class="title">Bem vindo ao seu painel</h1>
-        <p class="desc">Use o menu para editar o conteúdo do site.</p>
+        <h1 class="title">Welcome to your dashboard</h1>
+        <p class="desc">Use the menu to edit your website's content</p>
     </div>
 
     <div class="dashboard-options">

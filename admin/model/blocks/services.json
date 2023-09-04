@@ -1,13 +1,28 @@
 {
-    "title": "Serviços",
+    "title": "Services",
     "icon": "boxes",
+    "default_anchor": "services",
     "attributes": {
-        "title": {
-            "label": "Título",
+        "subtitle": {
+            "label": "Subtitle",
             "type": "string"
         },
+        "title": {
+            "label": "Title",
+            "type": "string"
+        },
+        "main_action": {
+            "label": "Main Action",
+            "type": "block",
+            "block_id": "button"
+        },
+        "final_action": {
+            "label": "Final Action",
+            "type": "block",
+            "block_id": "button"
+        },
         "services": {
-            "label": "Serviços",
+            "label": "Services",
             "type": "blocks",
             "allowed_blocks": [
                 "service"

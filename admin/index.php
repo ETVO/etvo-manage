@@ -6,6 +6,6 @@ define('ALLOWED_ACCESS', array(
     '' => '*',
     '/' => '*',
     'content' => '*',
-    'info' => '*',
+    'projects' => '*',
     'users' => 'admin'
 ));

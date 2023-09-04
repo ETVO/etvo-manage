@@ -36,7 +36,7 @@ switch ($request) {
         break;
 
     case 'content':
-    case 'info':
+    case 'projects':
         $data_source = $request;
         require BASE_DIR . $viewDir . 'model-page.php';
         break;
