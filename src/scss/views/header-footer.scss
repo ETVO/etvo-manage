@@ -1,6 +1,11 @@
 header {
     nav {
         background-color: var(--bs-primary);
+
+        .navbar-toggler {
+            color: white;
+            border-color: white;
+        }
         .navbar-brand {
             font-weight: bold;
             color: white !important;
@@ -9,7 +14,7 @@ header {
             align-items: center;
             margin-bottom: 0.25rem;
 
-            span.etvo {
+            .etvo {
                 display: block;
                 font-family: "Lora", serif;
                 font-size: 1.1em;
@@ -25,7 +30,7 @@ header {
                 }
             }
 
-            span.site-title {
+            .site-title {
                 display: block;
                 margin-top: 0.4rem;
                 margin-left: 0.75rem;
@@ -42,12 +47,6 @@ header {
 
                 padding: 0.25rem 0.35rem;
                 border-radius: 0.25rem;
-            }
-
-            &:hover,
-            &:active,
-            &:focus {
-                opacity: 0.7;
             }
         }
 
@@ -71,7 +70,6 @@ header {
         }
 
         .logged-in {
-            margin-left: 1rem;
             position: relative;
             * {
                 font-family: "Lora", serif;
@@ -79,6 +77,10 @@ header {
 
             button {
                 color: white !important;
+                @media all and (max-width: 768px) {
+                    border: solid 0.5px white;
+                }
+
                 &:hover {
                     opacity: 0.7;
                 }
@@ -107,11 +109,11 @@ footer {
     font-weight: 300;
     font-family: "Lora", serif;
     color: var(--bs-dark);
-    
+
     .link {
         color: #aaa;
-        font-size: .9rem;
-        margin-top: .25rem;
+        font-size: 0.9rem;
+        margin-top: 0.25rem;
     }
 
     a {
@@ -121,5 +123,9 @@ footer {
         &:hover {
             color: var(--bs-primary) !important;
         }
+    }
+
+    @media all and (max-width: 768px) {
+        margin-bottom: 90px;
     }
 }

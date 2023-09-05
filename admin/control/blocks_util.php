@@ -39,6 +39,13 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
             <?php
                 break;
 
+            case 'number':
+                if(!isset($value) && isset($field['value'])) $value = $field['value'];
+            ?>
+                <input type="number" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+            <?php
+                break;
+
             case 'password':
             ?>
                 <div class="password">

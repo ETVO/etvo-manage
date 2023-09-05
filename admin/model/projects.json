@@ -15,7 +15,10 @@
             },
             "save_in_dir": true,
             "keep_fields": [
-                "year", "title", "thumbnail"    
+                "menu_order",
+                "year",
+                "title",
+                "thumbnail"
             ]
         }
     }

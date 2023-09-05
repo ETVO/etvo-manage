@@ -5,7 +5,7 @@ if (!isset($attributes)) die('No attributes were found...');
 <form action="<?= $form_action ?? ''; ?>" method="POST" class="model row w-100 m-0" enctype="multipart/form-data">
     <input type="hidden" name="form_id" value="<?= $form_id ?? ''; ?>">
     <input type="hidden" name="data_source" value="<?php echo $data_source; ?>">
-    <div class="model-view col-9">
+    <div class="model-view col-12 col-md-8 col-lg-9">
         <?php foreach ($attributes as $key => $field) :
 
             $value = $data[$key] ?? null;
@@ -24,7 +24,7 @@ if (!isset($attributes)) die('No attributes were found...');
             endforeach;
         endif; ?>
     </div>
-    <div class="col-3">
+    <div class="col-12 col-md-4 col-lg-3">
         <div class="model-sidebar">
             <button class="btn btn-primary" type="submit">Save</button>
             <small>Changes are <b><i>NOT</i></b> saved automatically</small>

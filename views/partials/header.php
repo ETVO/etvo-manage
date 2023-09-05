@@ -37,10 +37,10 @@ $menu_options = $settings['menu_options'] ?? array(
     <header>
         <nav class="navbar navbar-expand-md">
             <div class="container">
-                <a class="navbar-brand etvo-manage-brand" href="<?= $main_link ?>">
-                    <span class="etvo">etvo<span>manage</span></span>
-                    <span class="site-title"><?php echo $site_title; ?></span>
-                </a>
+                <div class="navbar-brand etvo-manage-brand">
+                    <a class="etvo" href="<?= $main_link ?>">etvo<span>manage</span></a>
+                    <a class="site-title" href=<?= $settings['site_url'] ?>><?php echo $site_title; ?></a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#manageNavbar" aria-controls="manageNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="bi-list"></span>
                 </button>
@@ -60,7 +60,7 @@ $menu_options = $settings['menu_options'] ?? array(
                         <?php endif;
                         endforeach; ?>
                     </ul>
-                    <div class="logged-in">
+                    <div class="logged-in  ms-0 ms-md-3">
                         <button class="dropdown-toggle btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="bi-person"></span>
                             <span class="username">

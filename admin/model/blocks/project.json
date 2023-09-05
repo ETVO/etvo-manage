@@ -8,6 +8,11 @@
             "label": "Year",
             "type": "string"
         },
+        "menu_order": {
+            "label": "Menu Order",
+            "type": "number",
+            "value": 0
+        },
         "title": {
             "label": "Title",
             "type": "string"

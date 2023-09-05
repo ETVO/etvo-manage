@@ -1,6 +1,6 @@
 <?php
 
-define('IS_SUBDOMAIN', true);
+define('IS_SUBDOMAIN', false);
 
 $root_script_name = basename(__DIR__);
 
