@@ -10,6 +10,7 @@ if (!isset($active_menu))
 
 $main_link = BASE_URL . '/';
 
+
 // Get menu options from settings, if unset, set default menu options
 $menu_options = $settings['menu_options'] ?? array(
     'content' => array(

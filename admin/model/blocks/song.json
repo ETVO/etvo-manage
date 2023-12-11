@@ -1,0 +1,48 @@
+{
+    "title": "Song",
+    "icon": "music-note-list",
+    "default_anchor": "song",
+    "field_as_title": "title",
+    "attributes": {
+        "title": {
+            "label": "Title",
+            "type": "string"
+        },
+        "lyrics": {
+            "label": "Lyrics",
+            "type": "textarea"
+        },
+        "audio": {
+            "label": "Audio file",
+            "type": "audio"
+        },
+        "images": {
+            "label": "Images",
+            "type": "blocks",
+            "allowed_blocks": [
+                "image"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            }
+        },
+        "spotify": {
+            "label": "Spotify Link",
+            "type": "string"
+        },
+        "apple": {
+            "label": "Apple Music Link",
+            "type": "string"
+        },
+        "youtube": {
+            "label": "Apple Music Link",
+            "type": "string"
+        },
+        "deezer": {
+            "label": "Deezer Link",
+            "type": "string"
+        }
+    }
+}

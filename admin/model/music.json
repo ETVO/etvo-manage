@@ -1,0 +1,19 @@
+{
+    "title": "Music",
+    "desc": "Estevão Music",
+    "attributes": {
+        "songs": {
+            "label": "Songs",
+            "type": "blocks",
+            "allowed_blocks": [
+                "song"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            },
+            "save_in_dir": true
+        }
+    }
+}

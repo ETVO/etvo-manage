@@ -144,7 +144,7 @@ function save_in_dir(&$data, $save_in_dir)
 
             $block_data = &$data[$field_key][$key];
 
-            if (isset($keep_fields[$save_index])) {
+            if (isset($keep_fields[$save_index]) && $keep_fields[$save_index] != '') {
                 $keep = json_decode($keep_fields[$save_index]);
 
                 $block_data = array_intersect_key($block_data, array_flip($keep));
