@@ -12,10 +12,6 @@
             "label": "Lyrics",
             "type": "textarea"
         },
-        "audio": {
-            "label": "Audio file",
-            "type": "audio"
-        },
         "images": {
             "label": "Images",
             "type": "blocks",
