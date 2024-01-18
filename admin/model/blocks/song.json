@@ -33,7 +33,7 @@
             "type": "string"
         },
         "youtube": {
-            "label": "Apple Music Link",
+            "label": "YouTube Music Link",
             "type": "string"
         },
         "deezer": {
