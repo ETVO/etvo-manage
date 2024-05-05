@@ -1,22 +1,8 @@
 {
     "site_title": "ETVO",
-    "site_url": "http://etvo.test",
+    "site_url": "http://etvo-web.test",
     "menu_options": {
-        "content": {
-            "name": "Content",
-            "link": "/content/"
-        },
-        "projects": {
-            "name": "Projects",
-            "link": "/projects/"
-        },
-        "music": {
-            "name": "Music",
-            "link": "/music/"
-        },
-        "users": {
-            "name": "Users",
-            "link": "/users/"
-        }
+        "content": "Content",
+        "users": "Users"
     }
 }

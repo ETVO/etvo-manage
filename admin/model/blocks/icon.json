@@ -1,0 +1,20 @@
+{
+    "title": "Icon",
+    "icon": "icon",
+    "field_as_icon": "icon",
+    "field_as_title": "title",
+    "attributes": {
+        "title": {
+            "label": "Title",
+            "type": "string"
+        },
+        "icon": {
+            "label": "Icon",
+            "type": "string"
+        },
+        "link": {
+            "label": "Link",
+            "type": "string"
+        }
+    }
+}

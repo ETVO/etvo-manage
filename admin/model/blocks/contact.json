@@ -3,10 +3,6 @@
     "icon": "info-circle",
     "default_anchor": "contact",
     "attributes": {
-        "subtitle": {
-            "label": "Subtitle",
-            "type": "string"
-        },
         "title": {
             "label": "Title",
             "type": "string"
@@ -14,6 +10,22 @@
         "desc": {
             "label": "Description",
             "type": "textarea"
+        },
+        "icons_title": {
+            "label": "Icons Title",
+            "type": "string"
+        },
+        "icons": {
+            "label": "Icons",
+            "type": "blocks",
+            "allowed_blocks": [
+                "icons"
+            ],
+            "allow": {
+                "add": true,
+                "remove": true,
+                "reorder": true
+            }
         }
     }
 }

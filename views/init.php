@@ -1,4 +1,5 @@
 <?php
+include_once CONTROL_DIR . '/blocks_util.php';
 include_once CONTROL_DIR . '/util.php';
 
 $site_title = $settings['site_title'] ?? '';

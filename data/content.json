@@ -1,0 +1,31 @@
+{
+  "page_title": "ETVO - Web Design & Development",
+  "blocks": {
+    "hero:0": {
+      "h1": "Institutional Websites Development",
+      "h2": "Unlock the Power of Websites that Work for You",
+      "image": "http:\/\/etvo-web.test\/assets\/img\/hero.webp",
+      "action": {
+        "text": "Shape Your Legacy",
+        "link": "#contact"
+      }
+    },
+    "contact:0": {
+      "title": "Connect With Us",
+      "desc": "Have a question or want to discuss your project? We're here to help!",
+      "icons_title": "Or send us a message directly:",
+      "icons": {
+        "icon:0": {
+          "title": "Reach ETVO on WhatsApp",
+          "icon": "whatsapp",
+          "link": "https:\/\/wa.me\/?phone=932306439&text=Hello,%20ETVO!%20Can%20you%20help%20me%20with%20my%20project?"
+        },
+        "icon:1": {
+          "title": "Reach ETVO on Email",
+          "icon": "envelope",
+          "link": "mailto:contact@etvo-web.com"
+        }
+      }
+    }
+  }
+}

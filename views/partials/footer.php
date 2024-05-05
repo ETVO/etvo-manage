@@ -1,7 +1,7 @@
 <footer>
     <div class="container">
         <div class="copy"><?php echo date('Y'); ?> &copy; ETVO</div> 
-        <div class="link"><a href="http://etvo.me/" target="_blank">etvo.me</a></div>
+        <div class="link"><a href="http://etvo-web.com/" target="_blank">etvo-web.com</a></div>
     </div>
 </footer>
 

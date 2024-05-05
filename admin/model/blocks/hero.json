@@ -3,13 +3,22 @@
     "icon": "easel",
     "default_anchor": "hero",
     "attributes": {
-        "title": {
+        "h1": {
+            "label": "Tagline",
+            "type": "string"
+        },
+        "h2": {
             "label": "Title",
             "type": "string"
         },
-        "desc": {
-            "label": "Description",
-            "type": "textarea"
+        "image": {
+            "label": "Image",
+            "type": "image"
+        },
+        "action": {
+            "label": "Action",
+            "type": "block",
+            "block_id": "button"
         }
     }
 }

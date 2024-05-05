@@ -10,6 +10,10 @@
             "label": "Username",
             "type": "string"
         },
+        "favorite_color": {
+            "label": "Favorite color",
+            "type": "string"
+        },
         "access_level": {
             "label": "Access Level",
             "type": "select",

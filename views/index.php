@@ -11,15 +11,15 @@ include  VIEW_DIR . '/partials/header.php';
     </div>
 
     <div class="dashboard-options">
-        <?php foreach ($menu_options as $key => $option) :
+        <?php foreach ($menu_options as $key => $name) :
             if (is_access_allowed_here($_SESSION['user']['access_level'], $key)) :
-                $href = BASE_URL . $option['link'];
+                $href = BASE_URL . $key;
 
                 $is_current = ($key === $active_menu)
                     ? " class='nav-link active' aria-current='page'"
                     : " class='nav-link'";
         ?>
-                <a href="<?= $href; ?>" <?= $is_current; ?>><?= $option['name']; ?></a>
+                <a href="<?= $href; ?>" <?= $is_current; ?>><?= $name; ?></a>
         <?php endif;
         endforeach; ?>
     </div>

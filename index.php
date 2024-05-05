@@ -7,6 +7,7 @@ $viewDir = '/views/';
 include_once './const.php';
 include_once CONTROL_DIR . '/util.php';
 
+
 $request = str_replace([BASE_REQUEST, '/'], '', $request);
 $request = explode('?', $request)[0];
 
@@ -20,7 +21,6 @@ if ($request != 'login' && $request != 'init') {
 
     $response = authenticate($_SESSION['user'], $request);
     if (is_array($response)) {
-        print_r($response);
         if ($response[0]) {
             header("Location: " . BASE_URL . "/");
         } else {
@@ -28,6 +28,7 @@ if ($request != 'login' && $request != 'init') {
         }
     }
 }
+
 
 switch ($request) {
     case '':

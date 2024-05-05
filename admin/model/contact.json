@@ -1,41 +1,29 @@
 {
     "fields": {
-        "first_name": {
-            "label": "First Name",
+        "name": {
+            "placeholder": "Name",
             "type": "text",
-            "required": true,
-            "in_row": true
-        },
-        "last_name": {
-            "label": "Last Name",
-            "type": "text",
-            "required": true,
-            "in_row": true
+            "required": true
         },
         "email": {
-            "label": "Email",
+            "placeholder": "Email",
             "type": "email",
             "required": true
         },
-        "industry": {
-            "label": "Industry / Field of Work",
-            "type": "text",
-            "required": false
+        "phone": {
+            "placeholder": "Phone",
+            "type": "tel",
+            "required": true
         },
         "message": {
-            "label": "Message",
+            "placeholder": "Message",
             "type": "textarea",
             "required": false,
             "attrs": "rows=\"3\""
         }
     },
-    "errors": {
-        "required": "[label] is required.",
-        "email_invalid": "Please insert a valid email.",
-        "honeypot": "Spam detected."
-    },
     "honeypot": "honey",
-    "to": "estevao  @etvo.me",
+    "to": "contact@etvo-web.com",
     "subject": "Contact Form Submission",
     "response": {
         "success": "Thank you for your message! You will be contacted soon.",
