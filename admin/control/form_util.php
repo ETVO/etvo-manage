@@ -111,7 +111,20 @@ function render_form_field($name, $field)
 
     if ($type == 'textarea')
         echo "<textarea name='$name' class='form-control' $required $attrs></textarea>";
-    else
+    else if ($type == 'select') {
+        echo "<select class='form-select' $required $attrs>";
+
+        $options = $field['options'] ?? [];
+
+        $first_option = ($label != '') ? $label : $placeholder;
+        echo "<option selected disabled>$first_option</option>";
+
+        foreach ($options as $option) {
+            echo "<option value='". htmlspecialchars($option)."'>".htmlspecialchars($option)."</option>";
+        }
+
+        echo "</select>";
+    } else
         echo "<input type='$type' name='$name' class='form-control' $required $attrs>";
 
     echo '<div class="invalid-feedback"></div>';

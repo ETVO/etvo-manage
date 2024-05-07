@@ -1,7 +1,7 @@
 {
     "fields": {
         "name": {
-            "placeholder": "Name",
+            "placeholder": "Full Name",
             "type": "text",
             "required": true
         },
@@ -15,8 +15,21 @@
             "type": "tel",
             "required": true
         },
+        "status": {
+            "placeholder": "How can we help you?",
+            "options": [
+                "I want to develop my website",
+                "I'm not sure where to start and need guidance",
+                "I need a website with complex features",
+                "I want to brainstorm ideas and explore possibilities",
+                "I need help with website maintenance or updates",
+                "I'm interested in e-commerce solutions"
+            ],
+            "type": "select",
+            "required": true
+        },
         "message": {
-            "placeholder": "Message",
+            "placeholder": "Anything to add?",
             "type": "textarea",
             "required": false,
             "attrs": "rows=\"3\""
@@ -26,7 +39,7 @@
     "to": "contact@etvo-web.com",
     "subject": "Contact Form Submission",
     "response": {
-        "success": "Thank you for your message! You will be contacted soon.",
+        "success": "Great! Thank you for your message. ETVO will get in touch with you very soon.",
         "error": "Unfortunately, there was an error. Try again later."
     }
 }
