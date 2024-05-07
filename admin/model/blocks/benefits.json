@@ -1,0 +1,35 @@
+{
+  "title": "Benefits",
+  "icon": "hand-thumbs-up",
+  "attributes": {
+      "title": {
+          "label": "Title",
+          "type": "string"
+      },
+      "desc": {
+          "label": "Description",
+          "type": "textarea"
+      },
+      "benefits": {
+          "label": "Benefits",
+          "type": "blocks",
+          "allowed_blocks": [
+              "benefit"
+          ],
+          "allow": {
+              "add": true,
+              "remove": true,
+              "reorder": true
+          }
+      },
+      "cta_title": {
+          "label": "CTA Title",
+          "type": "string"
+      },
+      "cta_button": {
+          "label": "CTA Button",
+          "type": "block",
+          "block_id": "button"
+      }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "title": "Benefit",
+    "icon": "hand-thumbs-up",
+    "field_as_title": "title",
+    "attributes": {
+        "image": {
+            "label": "Image",
+            "type": "image"
+        },
+        "title": {
+            "label": "Title",
+            "type": "string"
+        },
+        "desc": {
+            "label": "Description",
+            "type": "textarea"
+        }
+    }
+}

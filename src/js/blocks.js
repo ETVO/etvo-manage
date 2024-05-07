@@ -2,7 +2,7 @@ import './image_upload.js';
 
 (jQuery)(
     function ($) {
-        const UTIL_API_URL = '/etvo-manage/admin/api/use_blocks_util.php';
+        const UTIL_API_URL = '/admin/api/use_blocks_util.php';
 
         $('form').on('submit', function (e) {
             e.preventDefault();
@@ -73,6 +73,13 @@ import './image_upload.js';
                 },
                 dataType: "html",
                 success: function (data) {
+                    console.log(UTIL_API_URL, JSON.stringify([
+                        block_id + ':' + index,
+                        null,
+                        block_group_name,
+                        allow,
+                        expanded
+                    ]));
                     $blocks_div.append(data);
                     trackFieldAsField($blocks_div.children('.block-field').last());
                 }

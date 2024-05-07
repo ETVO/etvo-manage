@@ -3,16 +3,16 @@
   "blocks": {
     "hero:0": {
       "h1": "Institutional Websites Development",
-      "h2": "Unlock the Power of Websites that Work for You",
+      "h2": "Boost Your Brand's Impact In The Digital World",
       "image": "http:\/\/etvo-web.test\/assets\/img\/hero.webp",
       "action": {
-        "text": "Shape Your Legacy",
-        "link": "#contact"
+        "text": "Get Started",
+        "link": "#benefits"
       }
     },
     "contact:0": {
       "title": "Connect With Us",
-      "desc": "Have a question or want to discuss your project? We're here to help!",
+      "desc": "Ready to make your project a reality? We can help.\r\n<br>Reach out now and get a free consultation.",
       "icons_title": "Or send us a message directly:",
       "icons": {
         "icon:0": {
@@ -25,6 +25,35 @@
           "icon": "envelope",
           "link": "mailto:contact@etvo-web.com"
         }
+      }
+    },
+    "benefits:0": {
+      "benefits": {
+        "benefit:0": {
+          "image": "http:\/\/etvo-web.test\/assets\/img\/\/thoughtful-storytelling.webp",
+          "title": "Engaging Content",
+          "desc": "Captivate the public with thoughtful storytelling that reflects your mission, values, and achievements."
+        },
+        "benefit:1": {
+          "image": "http:\/\/etvo-web.test\/assets\/img\/\/beautiful-design.webp",
+          "title": "Beautiful Design",
+          "desc": "Let us work together to create appealing layouts that resonate with your audience and authentically represent your brand's identity."
+        },
+        "benefit:2": {
+          "image": "http:\/\/etvo-web.test\/assets\/img\/\/content-marketing.webp",
+          "title": "Content Marketing",
+          "desc": "Establish credibility and leadership with an integrated blog that showcases your expertise and industry insights."
+        },
+        "benefit:3": {
+          "image": "http:\/\/etvo-web.test\/assets\/img\/\/increased-conversions.webp",
+          "title": "Increased Conversions",
+          "desc": "Drive user engagement and conversions with calls-to-action and optimized user journeys."
+        }
+      },
+      "cta_title": "Own the space your brand deserves",
+      "cta_button": {
+        "text": "Schedule a Free Meeting",
+        "link": "#contact"
       }
     }
   }

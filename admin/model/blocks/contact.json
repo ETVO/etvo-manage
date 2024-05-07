@@ -19,7 +19,7 @@
             "label": "Icons",
             "type": "blocks",
             "allowed_blocks": [
-                "icons"
+                "icon"
             ],
             "allow": {
                 "add": true,

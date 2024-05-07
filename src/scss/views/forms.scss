@@ -12,18 +12,18 @@
             }
 
             .field-help {
-                margin-top: .5rem;
-                font-size: .75rem;
+                margin-top: 0.5rem;
+                font-size: 0.75rem;
                 font-weight: 300;
                 color: #666;
-                letter-spacing: .4px;
+                letter-spacing: 0.4px;
             }
 
             .block-help {
-                margin-top: .25rem;
-                font-size: .85rem;
+                margin-top: 0.25rem;
+                font-size: 0.85rem;
                 font-weight: 300;
-                letter-spacing: .4px;
+                letter-spacing: 0.4px;
             }
 
             .rich-editor {
@@ -49,8 +49,8 @@
                     cursor: pointer;
                     margin: auto;
                     position: absolute;
-                    right: .75rem;
-                    top: .5rem;
+                    right: 0.75rem;
+                    top: 0.5rem;
                 }
             }
         }
@@ -117,7 +117,9 @@
                         border: none;
                         background: none;
                         text-align: left;
-                        
+
+                        transition: opacity 0.1s;
+
                         .icon {
                             margin-right: 0.5rem;
                             transition: color 0.1s;
@@ -125,7 +127,7 @@
                         }
 
                         &:hover {
-                            opacity: 0.7;
+                            opacity: 0.8;
                         }
 
                         .img-preview {
@@ -152,6 +154,14 @@
                     > .field > .blocks {
                         margin-left: 0.25rem;
                     }
+                }
+            }
+        }
+
+        .blocks {
+            &:has(.accordion-item .btn-header:not(.collapsed)) {
+                > .accordion-item > .block-title > .btn-header.collapsed {
+                    opacity: 0.5;
                 }
             }
         }
@@ -184,7 +194,7 @@
             line-height: 1.1;
         }
 
-        @media all and (max-width:768px) {
+        @media all and (max-width: 768px) {
             position: fixed;
             inset: unset;
             bottom: 0;

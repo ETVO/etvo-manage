@@ -281,7 +281,7 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
     <fieldset class="block-field accordion-item" name="<?php echo $block_field_name; ?>" data-field-as-title="<?php echo $field_as_title; ?>" data-field-as-icon="<?php echo $field_as_icon; ?>" data-block-id="<?php echo $block_id; ?>">
 
         <<?php echo $header_tag; ?> class="block-title accordion-header" id="heading_<?php echo $accordion_id; ?>">
-            <button class="btn-header" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<?php echo $accordion_id; ?>" aria-expanded="true" aria-controls="collapse_<?php echo $accordion_id; ?>">
+            <button class="btn-header <?php if (!$expanded) echo 'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<?php echo $accordion_id; ?>" aria-expanded="<?php if ($expanded) echo 'true'; ?>" aria-controls="collapse_<?php echo $accordion_id; ?>">
                 <div class="icon">
                     <span class="bi-<?php echo $accordion_icon; ?>" id="blockIcon" data-og-icon="<?php echo $accordion_icon; ?>"></span>
                 </div>
