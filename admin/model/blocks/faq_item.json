@@ -1,0 +1,16 @@
+{
+    "title": "FAQ Item",
+    "icon": "question-circle",
+    "use_as_title": "question",
+    "attributes": {
+        "question": {
+            "label": "Question",
+            "type": "string"
+        },
+        "answer": {
+            "label": "Answer",
+            "type": "textarea",
+            "attrs": "rows='4'"
+        }
+    }
+}

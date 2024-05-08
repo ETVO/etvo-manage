@@ -1,0 +1,16 @@
+{
+    "title": "Testimonial",
+    "icon": "chat-left-quote",
+    "field_as_title": "author",
+    "attributes": {
+        "text": {
+            "label": "Text",
+            "type": "textarea",
+            "attrs": "rows=\"4\""
+        },
+        "author": {
+            "label": "Author",
+            "type": "string"
+        }
+    }
+}

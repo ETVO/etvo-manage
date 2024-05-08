@@ -246,10 +246,11 @@ function render_block_field($block_id, $block, $block_group_name, $allow = [], $
     // Set expanded if set in block model
     $expanded = isset($block_model['expanded'])
         ? $block_model['expanded']
-        : false;
+        : $expanded;
 
     // Set header_tag according to expanded
-    $header_tag = ($expanded) ? 'h3' : 'h4';
+    // $header_tag = ($expanded) ? 'h3' : 'h4';
+    $header_tag = 'h4';
 
     // Create accordion id
     $accordion_id = $block_id . random_int(0, 99) . random_int(0, 99);

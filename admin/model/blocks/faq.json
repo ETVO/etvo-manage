@@ -1,0 +1,31 @@
+{
+  "title": "FAQ",
+  "icon": "chat-square-text",
+  "attributes": {
+    "title": {
+      "label": "Title",
+      "type": "string"
+    },
+    "tagline": {
+      "label": "Tagline",
+      "type": "string"
+    },
+    "items": {
+      "label": "Q&A's",
+      "type": "blocks",
+      "allowed_blocks": [
+        "faq_item"
+      ],
+      "allow": {
+        "add": true,
+        "remove": true,
+        "reorder": true
+      }
+    },
+    "action": {
+      "label": "Action",
+      "type": "block",
+      "block_id": "button"
+    }
+  }
+}

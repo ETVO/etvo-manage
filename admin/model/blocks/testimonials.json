@@ -1,0 +1,22 @@
+{
+  "title": "Testimonials",
+  "icon": "quote",
+  "attributes": {
+      "title": {
+          "label": "Title",
+          "type": "string"
+      },
+      "testimonials": {
+          "label": "Testimonials",
+          "type": "blocks",
+          "allowed_blocks": [
+              "testimonial"
+          ],
+          "allow": {
+              "add": true,
+              "remove": true,
+              "reorder": true
+          }
+      }
+  }
+}
