@@ -5,6 +5,7 @@ include_once dirname(__FILE__) . '/../index.php';
 function render_field($field_name, $field, $value, $parent_block = null, $echo = true, $data_source = null)
 {
     $type = $field['type'];
+    $attrs = $field['attrs'] ?? '';
     $label = $field['label'] ?? '';
 
     $has_parent = $parent_block != null;
@@ -28,28 +29,28 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
         switch ($type):
             case 'hidden':
         ?>
-                <input type="hidden" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                <input type="hidden" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>" <?= $attrs ?>>
             <?php
                 break;
 
             case 'string':
             case 'text':
             ?>
-                <input type="text" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                <input type="text" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>" <?= $attrs ?>>
             <?php
                 break;
 
             case 'number':
                 if(!isset($value) && isset($field['value'])) $value = $field['value'];
             ?>
-                <input type="number" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                <input type="number" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>" <?= $attrs ?>>
             <?php
                 break;
 
             case 'password':
             ?>
                 <div class="password">
-                    <input type="password" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+                    <input type="password" class="form-control" id="<?= $field_id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>" <?= $attrs ?>>
                     <span class="password-toggle bi-eye-slash"></span>
                 </div>
             <?php
@@ -62,15 +63,16 @@ function render_field($field_name, $field, $value, $parent_block = null, $echo =
                 break;
 
             case 'textarea':
+                if(!str_contains($attrs, 'rows')) $attrs .= 'rows="2"';
             ?>
-                <textarea name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-control" rows="2"><?php echo $value; ?></textarea>
+                <textarea name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-control" <?= $attrs ?>><?php echo $value; ?></textarea>
             <?php
                 break;
 
             case 'select':
                 $options = $field['options'];
             ?>
-                <select name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-select">
+                <select name="<?php echo $name; ?>" id="<?= $field_id; ?>" class="form-select" <?= $attrs ?>>
                     <option value="" disabled selected>-- Select --</option>
                     <?php foreach ($options as $option_value => $option_label) :
                         $selected = ($option_value == $value) ? 'selected' : '' ?>
