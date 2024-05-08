@@ -1,7 +1,7 @@
 {
     "title": "FAQ Item",
     "icon": "question-circle",
-    "use_as_title": "question",
+    "field_as_title": "question",
     "attributes": {
         "question": {
             "label": "Question",
@@ -10,7 +10,8 @@
         "answer": {
             "label": "Answer",
             "type": "textarea",
-            "attrs": "rows='4'"
+            "attrs": "rows='4'",
+            "help": "Wrap text in * to make it bold. Wrap text in _ to make it italic."
         }
     }
 }

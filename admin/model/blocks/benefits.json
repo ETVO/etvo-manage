@@ -21,15 +21,6 @@
               "remove": true,
               "reorder": true
           }
-      },
-      "cta_title": {
-          "label": "CTA Title",
-          "type": "string"
-      },
-      "cta_button": {
-          "label": "CTA Button",
-          "type": "block",
-          "block_id": "button"
       }
   }
 }

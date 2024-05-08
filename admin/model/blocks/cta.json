@@ -1,0 +1,15 @@
+{
+  "title": "CTA",
+  "icon": "star",
+  "attributes": {
+    "title": {
+      "label": "CTA Title",
+      "type": "string"
+    },
+    "button": {
+      "label": "CTA Button",
+      "type": "block",
+      "block_id": "button"
+    }
+  }
+}
