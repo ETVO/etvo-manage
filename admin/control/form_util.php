@@ -50,13 +50,14 @@ function send_mail(
     $mail->CharSet = "UTF-8";
 
     //Recipients
-    $mail->setFrom($from);
+    $mail->setFrom($auth['username']);
     $mail->addAddress($to);
     $mail->addReplyTo($from);
 
     //Content
     $mail->Subject = $subject;
     $mail->Body    = $body;
+    $mail->IsHTML(true);
 
     $mail->send();
 }
@@ -100,11 +101,14 @@ function render_form_field($name, $field)
     $label = $field['label'] ?? '';
     $placeholder = $field['placeholder'] ?? '';
     $type = $field['type'];
-    $required = $field['required'] ? 'required' : '';
+    $required = (isset($field['required']) && $field['required']) ? 'required' : '';
+    $autocomplete = $field['autocomplete'] ?? $name;
     $attrs = $field['attrs'] ?? '';
 
     if ($placeholder)
-        $attrs .= "placeholder='$placeholder'";
+        $attrs .= " placeholder='$placeholder'";
+    
+    $attrs .= " autocomplete='$autocomplete'";
 
     if ($label)
         echo "<label for='$name'>$label</label>";
@@ -112,7 +116,7 @@ function render_form_field($name, $field)
     if ($type == 'textarea')
         echo "<textarea name='$name' class='form-control' $required $attrs></textarea>";
     else if ($type == 'select') {
-        echo "<select class='form-select' $required $attrs>";
+        echo "<select name='$name' class='form-select' $required $attrs>";
 
         $options = $field['options'] ?? [];
 
@@ -128,4 +132,17 @@ function render_form_field($name, $field)
         echo "<input type='$type' name='$name' class='form-control' $required $attrs>";
 
     echo '<div class="invalid-feedback"></div>';
+}
+
+function render_honeypot($name)
+{
+    $field = [
+        'label' => '',
+        'placeholder' => 'Fax Number',
+        'type' => 'number',
+        'required' => 'false',
+        'attrs' => 'style="margin: 0; height: 16px; opacity: 0; cursor: default;" aria-hidden="true"'
+    ];
+    
+    render_form_field($name, $field);
 }

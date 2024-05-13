@@ -12,8 +12,7 @@
         },
         "phone": {
             "placeholder": "Phone",
-            "type": "tel",
-            "required": true
+            "type": "tel"
         },
         "status": {
             "placeholder": "How can we help you?",
@@ -39,7 +38,8 @@
     "to": "contact@etvo-web.com",
     "subject": "Contact Form Submission",
     "response": {
-        "success": "Great! Thank you for your message. ETVO will get in touch with you very soon.",
-        "error": "Unfortunately, there was an error. Try again later."
+        "success": "Thank you for your message. ETVO will get in touch with you very soon.",
+        "error": "Unfortunately, there was an error. Try again later.",
+        "honeypot": "We detected suspicious activity. If you think this is wrong, please contact our email directly."
     }
 }

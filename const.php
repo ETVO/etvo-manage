@@ -1,6 +1,8 @@
 <?php
 // error_reporting(0);
 
+header('Access-Control-Allow-Origin: http://etvo-web.test');
+
 // To be configured when setting up system:
 define('IS_SUBDOMAIN', true); # IF you change this, remember to change .htaccess
 define('HOSTED_URL', 'etvo-manage.test');

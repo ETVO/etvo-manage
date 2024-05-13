@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
     echo 'Saving...<br>';
     $data_source = $_POST['data_source'];
     $processed_data = $_POST;
+    // $processed_data = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+    // $processed_data = array_map("htmlspecialchars", $_POST);
 
     $has_image = isset($_POST['has_image'])
         ? $_POST['has_image']
