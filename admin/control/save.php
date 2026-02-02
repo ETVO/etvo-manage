@@ -3,6 +3,7 @@
 include_once dirname(__FILE__) . '/../index.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
+    echo 'Saving...<br>';
     $data_source = $_POST['data_source'];
     $processed_data = $_POST;
 
@@ -13,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
 
     $save_in_dir = isset($_POST['save_in_dir'])
         ? $_POST['save_in_dir']
-        : null;
+        : false;
 
     save_in_dir($processed_data, $save_in_dir);
 
@@ -28,10 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['data_source'])) {
     // Save to JSON
     $source_file = DATA_DIR . "/$data_source.json";
     file_put_contents($source_file, $json);
-    
+
     // Redirect to source
     $redirect_to = BASE_URL . "/$data_source";
-    header("Location: $redirect_to");
+    echo "<script>setTimeout(() => { window.location.href = '$redirect_to'; }, 1000);</script>";
 }
 
 function save_images(&$data, $has_image)
@@ -46,11 +47,10 @@ function save_images(&$data, $has_image)
     foreach ($has_image as $image_key) {
         $key_parts = explode('[', str_replace(']', '', $image_key));
         $src = get_value_by_key_parts($data, $key_parts);
+        $image = get_file_by_key_parts($_FILES, $key_parts);
 
         // Image is saved as URL or value is unchanged
-        if ($src) continue;
-
-        $image = get_file_by_key_parts($_FILES, $key_parts);
+        if ($src && !$image) continue;
 
         // Image was not uploaded
         if (!$image || (isset($image['error']) && $image['error'] == 4)) continue;
@@ -92,20 +92,11 @@ function upload_image($image, $upload_dir, $upload_name)
         mkdir($upload_dir, 0755, true);
     }
 
-    // $new_upload_name = '';
-
-    // // Check if file already exists
-    // $i = 1;
-    // while (file_exists($upload_file)) {
-    //     $new_upload_name = $upload_name . "_$i";
-    //     $upload_file = $upload_dir . $new_upload_name . ".$file_type";
-    //     $i++;
-    // }
-
-    // if ($new_upload_name) $upload_name = $new_upload_name;
-
     // Check file size
-    if ($image["size"] > 5000000) return false;
+    if ($image["size"] > 5000000) {
+        echo "<br><b>{$image['name']}</b> is not uploaded because size is bigger than 5MB.";
+        return false;
+    }
 
     if (move_uploaded_file($image["tmp_name"], $upload_file))
         return array(
