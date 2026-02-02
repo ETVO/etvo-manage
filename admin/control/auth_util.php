@@ -17,7 +17,7 @@ function create_users_file()
 function init_if_no_users()
 {
     $stored_users = json_decode(file_get_contents(USERS_STORAGE), true) ?? [];
-    if (count($stored_users) == 0) {
+    if (count($stored_users) == 0 && $_SERVER['REQUEST_URI'] !== '/init') {
         // No users registered
         header('Location: /init');
     }
