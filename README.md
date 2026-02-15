@@ -2,6 +2,8 @@
 
 A lightweight, headless content management system built from scratch with PHP and JSON files, designed to fit comfortably within 1GB hosting limits while delivering an intuitive block-based editing experience.
 
+**Note:** This project is no longer actively maintained. Frontend implementations include [etvo-page](https://github.com/ETVO/etvo-page) and [velvetcare](https://github.com/ETVO/velvetcare), though versions may be incompatible as these projects are also unmaintained.
+
 ## 🎯 Overview
 
 **Zero-dependency PHP CMS** that runs on minimal infrastructure without external libraries. ETVO Manage provides a dynamic block-based content editor with a flexible JSON-driven architecture. Unlike traditional headless CMSs with REST APIs, ETVO Manage uses direct file inclusion for ultra-fast content delivery - the frontend simply includes CMS files to read JSON content, eliminating HTTP overhead entirely.
@@ -136,7 +138,7 @@ ETVO Manage uses a **direct file inclusion approach** rather than a traditional 
 
 ### How It Works
 
-The frontend (e.g., [github.com/ETVO/etvo](https://github.com/ETVO/etvo)) integrates with the CMS through simple PHP includes:
+The frontend (e.g., [github.com/ETVO/etvo-page](https://github.com/ETVO/etvo-page)) integrates with the CMS through simple PHP includes:
 
 ```php
 // integrate.php (in frontend)
@@ -359,7 +361,7 @@ chmod -R 755 config/
 ```
 
 ### Frontend Example
-A complete frontend implementation example is available at [github.com/ETVO/etvo](https://github.com/ETVO/etvo), demonstrating how to consume the API and render content.
+A complete frontend implementation example is available at [github.com/ETVO/etvo-page](https://github.com/ETVO/etvo-page), demonstrating how to consume the API and render content.
 
 ## 🎯 Use Cases
 
