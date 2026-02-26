@@ -210,7 +210,7 @@ A page JSON file (`/data/content.json`) looks like this:
         "link": "#benefits"
       }
     },
-    "testimonials:0": {
+    "testimonials:1": {
       "title": "Client Testimonials",
       "testimonials": {
         "testimonial:0": {
@@ -223,7 +223,7 @@ A page JSON file (`/data/content.json`) looks like this:
         }
       }
     },
-    "contact:0": {
+    "contact:2": {
       "title": "Connect With Us",
       "desc": "Ready to start your project?",
       "icons": {
@@ -304,7 +304,7 @@ This makes ETVO Manage perfect for shared hosting environments where every MB co
 ## 💡 Why Build From Scratch?
 
 ### The 1GB Challenge
-Most hosting plans offer 1GB of storage. Traditional CMSs with their dependencies, databases, and overhead often struggle to fit everything (CMS + content + media) within this limit. ETVO Manage was designed with this constraint in mind:
+A free hosting plan won't offer much more than 1GB of storage. Traditional CMSs with their dependencies, databases, and overhead often struggle to fit everything (CMS + content + media) within this limit. ETVO Manage was designed with this constraint in mind:
 
 - **No Frameworks** - Laravel, Symfony, etc. add 50-100MB+ of vendor files
 - **No Database** - MySQL/PostgreSQL require separate storage allocation
